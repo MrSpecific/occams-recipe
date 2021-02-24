@@ -23,7 +23,7 @@ export default function Home() {
     async function getRecipes() {
       // const allPosts = await fetchEntries()
       const allPosts = await fetchEntries({
-        'content_type': 'recipe'
+        'content_type': 'recipe',
       })
 
       console.log(allPosts)
@@ -52,7 +52,6 @@ export default function Home() {
               date={p.fields.date}
               key={p.fields.title}
               title={p.fields.title}
-              
               url={p.fields.url}
             />
           ))
