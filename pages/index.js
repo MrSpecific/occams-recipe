@@ -1,7 +1,39 @@
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import Recipe from '../components/recipe'
+import * as contentful from 'contentful';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+const client = contentful.createClient({
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
+})
 
 export default function Home() {
+  async function fetchEntries(options = null) {
+    const entries = await client.getEntries(options)
+    if (entries.items) return entries.items
+    console.log(`Error getting Entries for ${contentType.name}.`)
+  }
+
+  const [recipes, setRecipes] = useState([])
+
+  useEffect(() => {
+    async function getRecipes() {
+      // const allPosts = await fetchEntries()
+      const allPosts = await fetchEntries({
+        'content_type': 'recipe'
+      })
+
+      console.log(allPosts)
+      setRecipes([...allPosts])
+      // setRecipes(([...allPosts.filter(post => post.sys.contentType === 'recipe')]))
+    }
+
+    getRecipes()
+  }, [])
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,6 +45,18 @@ export default function Home() {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        {recipes.length > 0
+        ? recipes.map((p) => (
+            <Recipe
+              date={p.fields.date}
+              key={p.fields.title}
+              title={p.fields.title}
+              
+              url={p.fields.url}
+            />
+          ))
+        : null}
 
         <p className={styles.description}>
           Get started by editing{' '}
