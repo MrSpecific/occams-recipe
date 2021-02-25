@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import Recipe from '../components/recipe'
 import * as contentful from 'contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const client = contentful.createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -26,7 +27,7 @@ export default function Home() {
         'content_type': 'recipe',
       })
 
-      console.log(allPosts)
+      // console.log(allPosts)
       setRecipes([...allPosts])
       // setRecipes(([...allPosts.filter(post => post.sys.contentType === 'recipe')]))
     }
@@ -48,11 +49,13 @@ export default function Home() {
 
         {recipes.length > 0
         ? recipes.map((p) => (
-            <Recipe
+          <Recipe
               date={p.fields.date}
               key={p.fields.title}
               title={p.fields.title}
+              description={documentToReactComponents(p.fields.description)}
               url={p.fields.url}
+              all={p}
             />
           ))
         : null}

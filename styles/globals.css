@@ -14,3 +14,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.recipe {
+  background-color: lavender;
+
+  & .recipe-title {
+    color: purple;
+  }
+}
