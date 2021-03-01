@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Recipe from '../components/recipe'
 import * as contentful from 'contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
+import Header from '../components/header'
+import Recipe from '../components/recipe'
 
 const client = contentful.createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -42,10 +44,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <Header>
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+      </Header>
+
+      <main className={styles.main}>
 
         {recipes.length > 0
         ? recipes.map((p) => (

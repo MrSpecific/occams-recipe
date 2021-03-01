@@ -1,5 +1,5 @@
 const Recipe = ({ title, date, description, url, all }) => {
-  console.log(all)
+  // console.log(all)
   return (
     <div className="recipe">
       <h2 className="recipe-title">{title}</h2>
