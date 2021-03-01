@@ -1,17 +1,14 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import * as contentful from 'contentful';
+// import * as contentful from 'contentful';
+import { client } from '../lib/contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 import Header from '../components/header'
-import Recipe from '../components/recipe'
+import RecipeCard from '../components/recipeCard'
 
-const client = contentful.createClient({
-  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
-})
 
 export default function Home() {
   async function fetchEntries(options = null) {
@@ -51,17 +48,9 @@ export default function Home() {
       </Header>
 
       <main className={styles.main}>
-
         {recipes.length > 0
-        ? recipes.map((p) => (
-          <Recipe
-              date={p.fields.date}
-              key={p.fields.title}
-              title={p.fields.title}
-              description={documentToReactComponents(p.fields.description)}
-              url={p.fields.url}
-              all={p}
-            />
+        ? recipes.map((p, i) => (
+          <RecipeCard {...p} key={i}/>
           ))
         : null}
 

@@ -1,14 +1,15 @@
 import { useRouter } from 'next/router'
-// import { getAllRecipeIds, getRecipeData } from '../../lib/recipes'
 import { fetchEntries } from '../../lib/contentful';
 import { recipes, getPaths, getEntry } from '../../lib/data'
+
 import Header from '../../components/header'
 
-export default function Recipe(props) {
+export default function SingleRecipe(props) {
   const { fields } = props;
   const router = useRouter();
   const id = router.query;
-  // console.log('Props:', props)
+  console.log('Props:', props)
+  console.log('Fields:', fields)
   // console.log('router.query:', router.query)
   
   return (
