@@ -1,0 +1,20 @@
+:root {
+  --beige: #f5f1e4;
+  --blue: #1d0680;
+  --teal: #068080;
+  --light-maroon: #d4431c;
+  --maroon: #c43812;
+  --dark-maroon: #87250b;
+  --warning-yellow: #cdeb00;
+
+  --yellow: rgb(240, 171, 0);
+  --black: #000;
+  --white: #fff;
+
+  --body-bg: var(--beige, antiquewhite);
+  --body-color: var(--maroon);
+
+  --link-color: var(--maroon);
+  --link-color-hover: var(--dark-maroon);
+  --link-color-active: var(--light-maroon);
+}

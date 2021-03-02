@@ -1,4 +1,5 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import styles from '../styles/RecipeCard.module.css'
 
 import Link from 'next/link';
 
@@ -7,7 +8,7 @@ const RecipeCard = (props) => {
   const { fields } = props;
 
   return (
-    <div className="recipe-card card">
+    <div className={styles['recipe-card']}>
       <h2 className="recipe-title">
         <Link href={`/recipe/${fields.slug}`}>
           <a>{fields.title}</a>
