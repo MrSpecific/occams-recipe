@@ -1,4 +1,9 @@
 .header {
   background-color: lavender;
   padding: 10px;
+
+  & h1 {
+    text-transform: uppercase;
+    letter-spacing: -2px;
+  }
 }

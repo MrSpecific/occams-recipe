@@ -43,7 +43,7 @@ export default function Home() {
 
       <Header>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Danger Recipes
         </h1>
       </Header>
 
