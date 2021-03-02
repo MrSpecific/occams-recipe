@@ -1,5 +1,5 @@
 .header {
-  background-color: lavender;
+  background-color: var(--beige);
   padding: 10px;
 
   & h1 {
@@ -9,14 +9,14 @@
 }
 
 .title a {
-  color: #0070f3;
+  /* color: #0070f3; */
   text-decoration: none;
 }
 
 .title a:hover,
 .title a:focus,
 .title a:active {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 .title {

@@ -1,5 +1,6 @@
 @import "modern-css-reset";
 
+@import "./settings/colors";
 @import "./settings/typography";
 
 html,
