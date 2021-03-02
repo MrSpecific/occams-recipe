@@ -1,6 +1,6 @@
 @import "modern-css-reset";
 
-@import "./typography";
+@import "./settings/typography";
 
 html,
 body {

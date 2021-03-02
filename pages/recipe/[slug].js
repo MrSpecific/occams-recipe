@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { fetchEntries } from '../../lib/contentful';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { recipes, getPaths, getEntry } from '../../lib/data'
 
 import Header from '../../components/header'
@@ -14,9 +14,10 @@ export default function SingleRecipe(props) {
   
   return (
     <>
-      <Header></Header>
-      <h1>{fields.title}</h1>
-      <h2>ID is: id</h2>
+      <Header title={fields.title}></Header>
+      <h2>{fields.title}</h2>
+      <div className="description">{documentToReactComponents(fields.description)}</div>
+      <div className="instructions">{documentToReactComponents(fields.instructions)}</div>
     </>
   )
 }

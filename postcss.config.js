@@ -2,7 +2,6 @@ module.exports = {
   plugins: {
     // 'postcss-import': {},
     'postcss-pxtorem': {
-      // propList: ['font', 'font-size', 'line-height', 'letter-spacing'],
       propList: ['*'],
     },
     'postcss-preset-env': {

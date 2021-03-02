@@ -41,11 +41,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Header>
-        <h1 className={styles.title}>
-          Danger Recipes
-        </h1>
-      </Header>
+      <Header></Header>
 
       <main className={styles.main}>
         {recipes.length > 0
