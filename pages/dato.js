@@ -1,4 +1,4 @@
-import { request } from '../lib/datocms';
+import { request, responsiveImageFragment } from '../lib/datocms';
 import { gql } from 'graphql-request'
 import { Image } from 'react-datocms'
 import Head from 'next/head'
@@ -50,19 +50,7 @@ const HOMEPAGE_QUERY = gql`
     }
   }
 
-  fragment responsiveImageFragment on ResponsiveImage {
-    srcSet
-    webpSrcSet
-    sizes
-    src
-    width
-    height
-    aspectRatio
-    alt
-    title
-    bgColor
-    base64
-  }
+  ${responsiveImageFragment}
 `
 
 export async function getStaticProps() {
