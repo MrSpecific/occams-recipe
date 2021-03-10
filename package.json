@@ -19,7 +19,8 @@
     "postcss-pxtorem": "^5.1.1",
     "react": "17.0.1",
     "react-datocms": "^1.5.5",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-markdown": "^5.0.3"
   },
   "devDependencies": {}
 }

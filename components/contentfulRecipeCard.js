@@ -4,7 +4,6 @@ import styles from '../styles/RecipeCard.module.css'
 import Link from 'next/link';
 
 const RecipeCard = (props) => {
-  console.log(props)
   const { fields } = props;
 
   return (

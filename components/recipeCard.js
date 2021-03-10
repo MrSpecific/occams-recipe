@@ -1,4 +1,5 @@
 import { Image } from 'react-datocms'
+import ReactMarkdown from 'react-markdown'
 
 import styles from '@styles/RecipeCard.module.css'
 
@@ -15,6 +16,7 @@ const RecipeCard = (recipe) => {
       </h2>
       <span>{recipe.date}</span>
       <Image data={recipe.cover.responsiveImage} />
+      <ReactMarkdown>{recipe.description}</ReactMarkdown>
     </div>
   )
 }

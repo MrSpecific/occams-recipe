@@ -24,7 +24,6 @@ export default function Home() {
         'content_type': 'recipe',
       })
 
-      // console.log(allPosts)
       setRecipes([...allPosts])
       // setRecipes(([...allPosts.filter(post => post.sys.contentType === 'recipe')]))
     }

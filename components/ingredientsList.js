@@ -1,5 +1,4 @@
 const IngredientsList = (props) => {
-  console.log(props)
   const { ingredients } = props;
 
   return (

@@ -12,9 +12,6 @@ export default function SingleRecipe(props) {
   // const { fields } = props;
   const router = useRouter();
   const id = router.query;
-  console.log('Props:', props)
-  // console.log('Fields:', fields)
-  // console.log('router.query:', router.query)
   
   return (
     <>
@@ -49,18 +46,19 @@ export async function getStaticPaths() {
 const SINGLE_RECIPE_QUERY = gql`
   query Recipe($slug: String) {
     recipe(filter: {slug: {eq: $slug}}) {
-      title,
-      slug,
+      title
+      description
+      slug
       cover {
         responsiveImage(imgixParams: { fit: crop, w: 1400, h: 600 }) {
           ...responsiveImageFragment
         }
-      },
+      }
       ingredients {
         id
         ingredient
         amount
-      },
+      }
       instructions {
         value
       }
@@ -76,12 +74,6 @@ export async function getStaticProps({ params }) {
     variables: { slug: params.recipeSlug },
     preview: false
   });
-  // console.log('data: ', data)
-  // const allRecipes = await recipes();
-  // const recipeData = getEntry({
-  //   recipeSlug: params.slug,
-  //   entries: allRecipes,
-  // });
 
   return {
     props: data.recipe

@@ -19,9 +19,11 @@ export default function Home({ data }) {
       `}</style>
       
       <main className={styles.main}>
-        {data.allRecipes.map(recipe => {
-          return <RecipeCard {...recipe}></RecipeCard>
-        })}
+        <ol className={styles.cardList}>
+          {data.allRecipes.map(recipe => {
+            return <li key={recipe.id}><RecipeCard {...recipe}></RecipeCard></li>
+          })}
+        </ol>
       </main>
 
       <Footer></Footer>
@@ -32,13 +34,15 @@ export default function Home({ data }) {
 const HOMEPAGE_QUERY = gql`
   query HomePage($limit: IntType) {
     allRecipes(first: $limit) {
+      id,
       title,
       slug,
       cover {
         responsiveImage(imgixParams: { fit: crop, w: 600, h: 600 }) {
           ...responsiveImageFragment
         }
-      }
+      },
+      description
     }
   }
 

@@ -12,7 +12,25 @@
   &:hover,
   &:focus,
   &:active {
-    color: var(--maroon);
-    border-color: var(--maroon);
+    /* color: var(--maroon);
+    border-color: var(--maroon); */
   }
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  color: #0070f3;
+  border-color: #0070f3;
+}
+
+.title {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
 }

@@ -10,7 +10,6 @@ export default function SingleRecipe(props) {
   const id = router.query;
   console.log('Props:', props)
   console.log('Fields:', fields)
-  // console.log('router.query:', router.query)
   
   return (
     <>
