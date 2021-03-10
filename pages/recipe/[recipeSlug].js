@@ -4,7 +4,8 @@ import { recipes, getPaths, getEntry } from '../../lib/data'
 import { Image, StructuredText } from 'react-datocms'
 import { request, responsiveImageFragment, getRecipeList } from '../../lib/datocms'
 
-import Header from '../../components/header'
+import Header from '@components/header'
+import Footer from '@components/footer'
 import IngredientsList from '../../components/ingredientsList'
 
 export default function SingleRecipe(props) {
@@ -17,13 +18,19 @@ export default function SingleRecipe(props) {
   
   return (
     <>
+      <style jsx>{`
+        .recipe :global(.ingredient-name) {
+          font-weight: bold;
+        }
+      `}</style>
       <Header title={props.title}></Header>
       <div className="recipe">
-        <h2>{props.title}</h2>
         <Image data={props.cover.responsiveImage} />
         <IngredientsList ingredients={props.ingredients} />
         <StructuredText data={props.instructions} />
       </div>
+
+      <Footer></Footer>
     </>
   )
 }
@@ -50,7 +57,8 @@ const SINGLE_RECIPE_QUERY = gql`
         }
       },
       ingredients {
-        ingredient,
+        id
+        ingredient
         amount
       },
       instructions {

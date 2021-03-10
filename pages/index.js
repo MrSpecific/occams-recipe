@@ -1,97 +1,58 @@
-import { useEffect, useState } from 'react'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { client } from '../lib/contentful'
-import siteInfo from '../lib/siteInfo'
+import { request, responsiveImageFragment } from '@lib/datocms';
+import { gql } from 'graphql-request'
+import { Image, StructuredText } from 'react-datocms'
+import styles from '@styles/Home.module.css'
 
-import Header from '../components/header'
-import RecipeCard from '../components/recipeCard'
+import Header from '@components/header'
+import Footer from '@components/footer'
+import RecipeCard from '@components/recipeCard';
 
-
-export default function Home() {
-  async function fetchEntries(options = null) {
-    const entries = await client.getEntries(options)
-    if (entries.items) return entries.items
-    console.log(`Error getting Entries for ${contentType.name}.`)
-  }
-
-  const [recipes, setRecipes] = useState([])
-
-  useEffect(() => {
-    async function getRecipes() {
-      // const allPosts = await fetchEntries()
-      const allPosts = await fetchEntries({
-        'content_type': 'recipe',
-      })
-
-      // console.log(allPosts)
-      setRecipes([...allPosts])
-      // setRecipes(([...allPosts.filter(post => post.sys.contentType === 'recipe')]))
-    }
-
-    getRecipes()
-  }, [])
-
+export default function Home({ data }) {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>{siteInfo.title}</title>
-      </Head>
       <Header></Header>
 
+      <style jsx>{`
+        .recipe :global(.ingredient-name) {
+          font-weight: bold;
+        }
+      `}</style>
+      
       <main className={styles.main}>
-        {recipes.length > 0
-        ? recipes.map((p, i) => (
-          <RecipeCard {...p} key={i}/>
-          ))
-        : null}
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        {data.allRecipes.map(recipe => {
+          return <RecipeCard {...recipe}></RecipeCard>
+        })}
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <Footer></Footer>
     </div>
   )
+}
+
+const HOMEPAGE_QUERY = gql`
+  query HomePage($limit: IntType) {
+    allRecipes(first: $limit) {
+      title,
+      slug,
+      cover {
+        responsiveImage(imgixParams: { fit: crop, w: 600, h: 600 }) {
+          ...responsiveImageFragment
+        }
+      }
+    }
+  }
+
+  ${responsiveImageFragment}
+`
+
+export async function getStaticProps() {
+  const data = await request({
+    query: HOMEPAGE_QUERY,
+    variables: { limit: 10 },
+    preview: false
+  });
+
+  return {
+    props: { data }
+  };
 }

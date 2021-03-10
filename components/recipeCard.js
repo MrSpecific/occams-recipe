@@ -1,21 +1,20 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import styles from '../styles/RecipeCard.module.css'
+import { Image } from 'react-datocms'
+
+import styles from '@styles/RecipeCard.module.css'
 
 import Link from 'next/link';
 
-const RecipeCard = (props) => {
-  console.log(props)
-  const { fields } = props;
+const RecipeCard = (recipe) => {
 
   return (
     <div className={styles['recipe-card']}>
-      <h2 className="recipe-title">
-        <Link href={`/recipe/${fields.slug}`}>
-          <a>{fields.title}</a>
+      <h2 className={styles.title}>
+        <Link href={`/recipe/${recipe.slug}`}>
+          <a>{recipe.title}</a>
         </Link>
       </h2>
-      <span>{fields.date}</span>
-      <div className="description">{documentToReactComponents(fields.description)}</div>
+      <span>{recipe.date}</span>
+      <Image data={recipe.cover.responsiveImage} />
     </div>
   )
 }
