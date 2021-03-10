@@ -3,8 +3,8 @@
   padding: 10px;
 
   & h1 {
-    text-transform: uppercase;
-    letter-spacing: -2px;
+    /* text-transform: uppercase; */
+    letter-spacing: -1px;
   }
 }
 
@@ -27,5 +27,5 @@
 
 .title,
 .description {
-  text-align: center;
+
 }

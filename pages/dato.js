@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.css'
 
 import Header from '../components/header'
 import RecipeCard from '../components/recipeCard'
+import IngredientsList from '../components/IngredientsList'
 
 export default function Home({ data }) {
   return (
@@ -19,7 +20,13 @@ export default function Home({ data }) {
 
       <main className={styles.main}>
         {data.allRecipes.map(recipe => {
-          return <Image data={recipe.cover.responsiveImage} />
+          return (
+            <div className="recipe">
+              <h2>{recipe.title}</h2>
+              <Image data={recipe.cover.responsiveImage} />
+              <IngredientsList ingredients={recipe.ingredients} />
+            </div>
+          )
         })}
       </main>
 
@@ -46,6 +53,10 @@ const HOMEPAGE_QUERY = gql`
         responsiveImage(imgixParams: { fit: crop, w: 1400, h: 600 }) {
           ...responsiveImageFragment
         }
+      },
+      ingredients {
+        ingredient,
+        amount
       }
     }
   }

@@ -1,3 +1,10 @@
 :root {
-  --font-family-primary: 'Cabin', sans-serif;
+  --neuton: 'Neuton', serif;
+  --pt-sans: 'PT Sans', sans-serif;
+  /* --cabin: 'Cabin', sans-serif; */
+
+  --font-family-primary: var(--neuton);
+  --font-family-secondary: var(--pt-sans);
+
+  --heading-font-family: var(--font-family-secondary);
 }
