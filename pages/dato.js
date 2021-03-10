@@ -3,6 +3,7 @@ import { gql } from 'graphql-request'
 import { Image } from 'react-datocms'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import '../styles/test.module.css'
 
 import Header from '../components/header'
 import RecipeCard from '../components/recipeCard'
@@ -11,13 +12,20 @@ import IngredientsList from '../components/IngredientsList'
 export default function Home({ data }) {
   return (
     <div className={styles.container}>
+      <style jsx>{`
+        .recipe :global(.ingredient-name) {
+          font-weight: bold;
+        }
+        `}
+      </style>
+      
       <Head>
         <title>Occam's Recipe</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Header></Header>
-
+      
       <main className={styles.main}>
         {data.allRecipes.map(recipe => {
           return (
