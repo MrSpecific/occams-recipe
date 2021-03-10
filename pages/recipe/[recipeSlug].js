@@ -6,7 +6,9 @@ import { request, responsiveImageFragment, getRecipeList } from '../../lib/datoc
 
 import Header from '@components/header'
 import Footer from '@components/footer'
-import IngredientsList from '../../components/ingredientsList'
+import Wrapper from '@components/layout/Wrapper'
+import Attribution from '@components/Attribution'
+import IngredientsList from '@components/ingredientsList'
 
 export default function SingleRecipe(props) {
   // const { fields } = props;
@@ -22,9 +24,22 @@ export default function SingleRecipe(props) {
       `}</style>
       <Header title={props.title}></Header>
       <div className="recipe">
+        <Attribution {...props}></Attribution>
         <Image data={props.cover.responsiveImage} />
-        <IngredientsList ingredients={props.ingredients} />
-        <StructuredText data={props.instructions} />
+        <Wrapper width="standard">
+          {props.ingredients && (
+            <section className="ingredients">
+              <h2>Ingredients:</h2>
+              <IngredientsList ingredients={props.ingredients} />
+            </section>
+          )}
+          {props.instructions && (
+            <section className="instructions">
+              <h2>Instructions:</h2>
+              <StructuredText data={props.instructions} />
+            </section>
+          )}
+        </Wrapper>
       </div>
 
       <Footer></Footer>
@@ -47,6 +62,7 @@ const SINGLE_RECIPE_QUERY = gql`
   query Recipe($slug: String) {
     recipe(filter: {slug: {eq: $slug}}) {
       title
+      date
       description
       slug
       cover {
@@ -61,6 +77,9 @@ const SINGLE_RECIPE_QUERY = gql`
       }
       instructions {
         value
+      }
+      author {
+        name
       }
     }
   }

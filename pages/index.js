@@ -43,6 +43,9 @@ const HOMEPAGE_QUERY = gql`
         }
       },
       description
+      author {
+        name
+      }
     }
   }
 
