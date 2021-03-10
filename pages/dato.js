@@ -1,11 +1,10 @@
 import { request, responsiveImageFragment } from '../lib/datocms';
 import { gql } from 'graphql-request'
-import { Image } from 'react-datocms'
+import { Image, StructuredText } from 'react-datocms'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 import Header from '../components/header'
-import RecipeCard from '../components/recipeCard'
 import IngredientsList from '../components/ingredientsList'
 
 export default function Home({ data }) {
@@ -15,13 +14,7 @@ export default function Home({ data }) {
         .recipe :global(.ingredient-name) {
           font-weight: bold;
         }
-        `}
-      </style>
-      
-      <Head>
-        <title>Occam's Recipe</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      `}</style>
 
       <Header></Header>
       
@@ -32,6 +25,7 @@ export default function Home({ data }) {
               <h2>{recipe.title}</h2>
               <Image data={recipe.cover.responsiveImage} />
               <IngredientsList ingredients={recipe.ingredients} />
+              <StructuredText data={recipe.instructions} />
             </div>
           )
         })}
@@ -64,6 +58,9 @@ const HOMEPAGE_QUERY = gql`
       ingredients {
         ingredient,
         amount
+      },
+      instructions {
+        value
       }
     }
   }

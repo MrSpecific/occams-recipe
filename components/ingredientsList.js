@@ -6,8 +6,8 @@ const IngredientsList = (props) => {
     <ol className="ingredients-list">
       {ingredients.map(row => {
         return (<li className="ingredient">
-          <span className="ingredient-name">{row.ingredient} - </span>
           <span className="ingredient-amount">{row.amount}</span>
+          <span className="ingredient-name"> {row.ingredient}</span>
         </li>)
       })}
     </ol>

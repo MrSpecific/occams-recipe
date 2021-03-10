@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-// import * as contentful from 'contentful';
-import { client } from '../lib/contentful';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { client } from '../lib/contentful'
+import siteInfo from '../lib/siteInfo'
 
 import Header from '../components/header'
 import RecipeCard from '../components/recipeCard'
@@ -37,10 +35,8 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Occam's Recipe</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{siteInfo.title}</title>
       </Head>
-
       <Header></Header>
 
       <main className={styles.main}>
