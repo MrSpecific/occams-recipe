@@ -3,7 +3,6 @@ import { gql } from 'graphql-request'
 import { Image } from 'react-datocms'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import '../styles/test.module.css'
 
 import Header from '../components/header'
 import RecipeCard from '../components/recipeCard'
