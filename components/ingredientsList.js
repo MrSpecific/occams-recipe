@@ -1,7 +1,3 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-
-import Link from 'next/link';
-
 const IngredientsList = (props) => {
   // console.log(props)
   const { ingredients } = props;

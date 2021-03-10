@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 
 import Header from '../components/header'
 import RecipeCard from '../components/recipeCard'
-import IngredientsList from '../components/IngredientsList'
+import IngredientsList from '../components/ingredientsList'
 
 export default function Home({ data }) {
   return (
