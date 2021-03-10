@@ -3,6 +3,11 @@ const IngredientsList = (props) => {
 
   return (
     <ol className="ingredients-list">
+      <style jsx>{`
+        .ingredients-list {
+          list-style: disc;
+        }
+      `}</style>
       {ingredients.map(row => {
         return (
           <li key={row.id} className="ingredient">

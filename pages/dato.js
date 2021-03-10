@@ -5,7 +5,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
 import Header from '../components/header'
-import IngredientsList from '../components/ingredientsList'
+import IngredientsList from '../components/IngredientsList'
 
 export default function Home({ data }) {
   return (

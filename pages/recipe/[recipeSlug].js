@@ -8,7 +8,7 @@ import Header from '@components/header'
 import Footer from '@components/footer'
 import Wrapper from '@components/layout/Wrapper'
 import Attribution from '@components/Attribution'
-import IngredientsList from '@components/ingredientsList'
+import IngredientsList from '@components/IngredientsList'
 
 export default function SingleRecipe(props) {
   // const { fields } = props;
@@ -26,7 +26,7 @@ export default function SingleRecipe(props) {
       <div className="recipe">
         <Attribution {...props}></Attribution>
         <Image data={props.cover.responsiveImage} />
-        <Wrapper width="standard">
+        <Wrapper width="narrow">
           {props.ingredients && (
             <section className="ingredients">
               <h2>Ingredients:</h2>
