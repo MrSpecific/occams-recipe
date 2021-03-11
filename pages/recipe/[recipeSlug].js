@@ -10,6 +10,8 @@ import Wrapper from '@components/layout/Wrapper'
 import Attribution from '@components/Attribution'
 import IngredientsList from '@components/IngredientsList'
 
+import styles from '@styles/recipe.module.css'
+
 export default function SingleRecipe(props) {
   // const { fields } = props;
   const router = useRouter();
@@ -23,10 +25,10 @@ export default function SingleRecipe(props) {
         }
       `}</style>
       <Header title={props.title}></Header>
-      <div className="recipe">
+      <div className={styles.recipe}>
         <Attribution {...props}></Attribution>
         <Image data={props.cover.responsiveImage} />
-        <Wrapper width="narrow">
+        <Wrapper width="narrow" className="fifty-fifty">
           {props.ingredients && (
             <section className="ingredients">
               <h2>Ingredients:</h2>
