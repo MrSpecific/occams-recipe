@@ -28,7 +28,7 @@ export default function SingleRecipe(props) {
       <div className={styles.recipe}>
         <Attribution {...props}></Attribution>
         <Image data={props.cover.responsiveImage} />
-        <Wrapper width="narrow" className="fifty-fifty">
+        <Wrapper width="narrow" padding="true">
           {props.ingredients && (
             <section className="ingredients">
               <h2>Ingredients:</h2>
