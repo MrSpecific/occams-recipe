@@ -1,6 +1,13 @@
 .recipe {}
 
 .recipe :global {
+  & .attribution {
+    display: block;
+    padding: 0 var(--edge-space) var(--edge-space);
+    color: var(--grey);
+    font-style: italic;
+  }
+
   & .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;

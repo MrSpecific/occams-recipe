@@ -15,9 +15,14 @@ const RecipeCard = (recipe) => {
           <a>{recipe.title}</a>
         </Link>
       </h2>
-      <Attribution {...recipe}></Attribution>
-      <Image data={recipe.cover.responsiveImage} />
-      <ReactMarkdown>{recipe.description}</ReactMarkdown>
+      <Link href={`/recipe/${recipe.slug}`}>
+        <a>
+          <Attribution {...recipe}></Attribution>
+          <Image data={recipe.cover.responsiveImage} />
+          <ReactMarkdown>{recipe.description}</ReactMarkdown>
+        </a>
+      </Link>
+      
     </div>
   )
 }
