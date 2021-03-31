@@ -5,6 +5,7 @@ const Attribution = (props) => {
       <style jsx>{`
         .attribution {
           display: block;
+          margin-bottom: 10px;
           color: var(--grey);
           font-style: italic;
         }

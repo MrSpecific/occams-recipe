@@ -36,6 +36,8 @@
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  padding: 0;
 }
 
 @media (max-width: 600px) {
