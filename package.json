@@ -23,5 +23,7 @@
     "react-dom": "17.0.1",
     "react-markdown": "^5.0.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "postcss-import": "^14.0.1"
+  }
 }

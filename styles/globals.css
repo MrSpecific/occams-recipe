@@ -1,9 +1,12 @@
 @import "modern-css-reset";
 
+@import "./settings/breakpoints";
 @import "./settings/colors";
 @import "./settings/fonts";
 @import "./settings/typography";
 @import "./settings/units";
+
+@import "./utilities/helpers";
 
 html,
 body {
@@ -36,4 +39,28 @@ a {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font-family);
   letter-spacing: -0.02em;
+
+  &.decorated {
+    border-bottom: 1px solid var(--warning-yellow);
+  }
+}
+
+:root {
+  --breakpoint: small;
+
+  @media (--medium) {
+    --breakpoint: medium;
+  }
+
+  @media (--large) {
+    --breakpoint: large;
+  }
+
+  @media (--xlarge) {
+    --breakpoint: xlarge;
+  }
+
+  @media (--xxlarge) {
+    --breakpoint: xxlarge;
+  }
 }

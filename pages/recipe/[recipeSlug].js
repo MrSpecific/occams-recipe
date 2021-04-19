@@ -28,16 +28,16 @@ export default function SingleRecipe(props) {
       <div className={styles.recipe}>
         <Attribution {...props}></Attribution>
         <Image data={props.cover.responsiveImage} />
-        <Wrapper width="narrow" padding="true">
+        <Wrapper width="standard" padding="true" gutter="true">
           {props.ingredients && (
             <section className="ingredients">
-              <h2>Ingredients:</h2>
+              <h2 className="decorated">Ingredients:</h2>
               <IngredientsList ingredients={props.ingredients} />
             </section>
           )}
           {props.instructions && (
             <section className="instructions">
-              <h2>Instructions:</h2>
+              <h2 className="decorated">Instructions:</h2>
               <StructuredText data={props.instructions} />
             </section>
           )}

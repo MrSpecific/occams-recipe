@@ -9,8 +9,13 @@ const IngredientsList = (props) => {
         .ingredients-list {
           list-style: disc;
         }
-
+        
         .ingredient-name {
+          // font-weight: bold;
+          color: var(--nearly-black);
+        }
+        
+        .ingredient-amount {
           font-weight: bold;
         }
       `}</style>

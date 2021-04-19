@@ -10,6 +10,7 @@ const Wrapper = (props) => {
   const className = classNames({
     'wrapper': true,
     'padding': props.padding,
+    'gutter': props.gutter,
     [styles[width]]: true,
   });
   // return <div className={`${styles[width]} wrapper`}>{props.children}</div>

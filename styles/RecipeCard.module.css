@@ -1,17 +1,26 @@
 .recipe-card {
-  margin: 1rem;
-  flex-basis: 45%;
-  padding: 1.5rem;
+  /* margin: 1rem; */
+  /* flex-basis: 45%; */
+  height: 100%;
+  padding: var(--edge-space);
   text-align: left;
   color: inherit;
   text-decoration: none;
   border: 1px solid #eaeaea;
-  border-radius: 10px;
+  border-radius: 6px;
   transition: color 0.15s ease, border-color 0.15s ease;
   
-  &:hover,
-  &:focus,
-  &:active {
+  & a:hover {
+    color: var(--yellow);
+
+    & img {
+      opacity: 0.75;
+    }
+  }
+
+  & a:hover,
+  & a:focus,
+  & a:active {
     /* color: var(--maroon);
     border-color: var(--maroon); */
   }

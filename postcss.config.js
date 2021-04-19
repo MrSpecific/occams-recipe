@@ -1,6 +1,6 @@
 module.exports = {
   plugins: {
-    // 'postcss-import': {},
+    'postcss-import': {},
     'postcss-pxtorem': {
       propList: ['*'],
     },
