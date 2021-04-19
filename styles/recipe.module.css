@@ -20,4 +20,8 @@
   & .instructions {
     font-size: 18px;
   }
+
+  & .instructions {
+    letter-spacing: -0.5px;
+  }
 }

@@ -1,10 +1,13 @@
 :root {
   --neuton: 'Neuton', serif;
   --pt-sans: 'PT Sans', sans-serif;
+  --jetbrains-mono: 'JetBrains Mono';
   /* --cabin: 'Cabin', sans-serif; */
 
-  --font-family-primary: var(--neuton);
-  --font-family-secondary: var(--pt-sans);
+  /* --font-family-primary: var(--neuton);
+  --font-family-secondary: var(--pt-sans); */
+  --font-family-primary: var(--jetbrains-mono);
+  --font-family-secondary: var(--neuton);
 
-  --heading-font-family: var(--font-family-secondary);
+  --heading-font-family: var(--jetbrains-mono);
 }
