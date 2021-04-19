@@ -15,7 +15,7 @@ const EstimatedTime = (recipe) => {
     <div className="estimated-time">
       <DisplayTime label="Prep time" time={recipe.prepTime}></DisplayTime>
       <DisplayTime label="Cook time" time={recipe.cookingTime}></DisplayTime>
-      <DisplayTime label="Total time" time={recipe.prepTime + recipe.cookingTime}></DisplayTime>
+      {recipe.prepTime && recipe.cookingTime && <DisplayTime label="Total time" time={recipe.prepTime + recipe.cookingTime}></DisplayTime>}
     </div>
   )
 }

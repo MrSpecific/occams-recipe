@@ -17,7 +17,9 @@
 
   & .estimated-time {
     margin-bottom: var(--edge-space);
-    
+    color: var(--grey);
+    font-size: 14px;
+
     & .time-label {
       display: block;
     }

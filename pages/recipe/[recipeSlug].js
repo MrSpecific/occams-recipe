@@ -78,6 +78,7 @@ const SINGLE_RECIPE_QUERY = gql`
       }
       prepTime,
       cookingTime,
+      # context,
       ingredients {
         id
         ingredient
