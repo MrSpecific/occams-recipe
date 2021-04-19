@@ -9,13 +9,14 @@ const Footer = (props) => {
   return (
     <footer className={styles.footer}>
       <Link
-        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+        href="//github.com/MrSpecific"
         target="_blank"
         rel="noopener noreferrer"
       >
         <a>
-        Powered by{' '}
-        <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} /> and Will
+        {/* Powered by{' '}
+        <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} /><br /> */}
+        Created by Will Christenson
         </a>
       </Link>
     </footer>
