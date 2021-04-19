@@ -8,6 +8,7 @@ import Header from '@components/header'
 import Footer from '@components/footer'
 import Wrapper from '@components/layout/Wrapper'
 import Attribution from '@components/Attribution'
+import EstimatedTime from '@components/EstimatedTime'
 import IngredientsList from '@components/IngredientsList'
 
 import styles from '@styles/recipe.module.css'
@@ -29,18 +30,21 @@ export default function SingleRecipe(props) {
         <Attribution {...props}></Attribution>
         <Image data={props.cover.responsiveImage} />
         <Wrapper width="standard" padding="true" gutter="true">
-          {props.ingredients && (
-            <section className="ingredients">
-              <h2 className="decorated">Ingredients:</h2>
-              <IngredientsList ingredients={props.ingredients} />
-            </section>
-          )}
-          {props.instructions && (
-            <section className="instructions">
-              <h2 className="decorated">Instructions:</h2>
-              <StructuredText data={props.instructions} />
-            </section>
-          )}
+          <EstimatedTime {...props}/>
+          <div className="vitals">
+            {props.ingredients && (
+              <section className="ingredients">
+                <h2 className="decorated">Ingredients:</h2>
+                <IngredientsList ingredients={props.ingredients} />
+              </section>
+            )}
+            {props.instructions && (
+              <section className="instructions">
+                <h2 className="decorated">Instructions:</h2>
+                <StructuredText data={props.instructions} />
+              </section>
+            )}
+          </div>
         </Wrapper>
       </div>
 
@@ -72,6 +76,8 @@ const SINGLE_RECIPE_QUERY = gql`
           ...responsiveImageFragment
         }
       }
+      prepTime,
+      cookingTime,
       ingredients {
         id
         ingredient
