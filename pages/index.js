@@ -1,6 +1,6 @@
 import { request, responsiveImageFragment } from '@lib/datocms';
 import { gql } from 'graphql-request'
-import { Image, StructuredText } from 'react-datocms'
+// import { Image, StructuredText } from 'react-datocms'
 import styles from '@styles/Home.module.css'
 
 import Header from '@components/header'
