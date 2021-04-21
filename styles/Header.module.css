@@ -23,9 +23,28 @@
   margin: 0;
   line-height: 1.1;
   font-size: 7vw;
+
+  & a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--almost-black);
+
+    &:hover svg {
+      color: var(--yellow);
+    }
+    &:active svg {
+      color: var(--warning-yellow);
+    }
+  }
 }
 
 .title,
 .description {
 
+}
+
+.logo {
+  height: 0.8em;
+  fill: currentColor;
 }

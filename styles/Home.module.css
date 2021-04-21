@@ -40,7 +40,7 @@
   grid-template-columns: repeat(1fr);
   grid-column-gap: var(--edge-space);
   grid-row-gap: var(--edge-space);
-  margin: 0 var(--edge-space);
+  margin: var(--edge-space);
   padding: 0;
 
   @media (--medium) {

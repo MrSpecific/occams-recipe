@@ -33,10 +33,11 @@ export default function Home({ data }) {
 
 const HOMEPAGE_QUERY = gql`
   query HomePage($limit: IntType) {
-    allRecipes(first: $limit) {
+    allRecipes(first: $limit, orderBy: [date_DESC]) {
       id,
       title,
       slug,
+      date,
       cover {
         responsiveImage(imgixParams: { fit: crop, w: 600, h: 600 }) {
           ...responsiveImageFragment
@@ -45,6 +46,10 @@ const HOMEPAGE_QUERY = gql`
       description
       author {
         name
+      }
+      categories {
+        title
+        slug
       }
     }
   }

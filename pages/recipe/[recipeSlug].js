@@ -90,6 +90,10 @@ const SINGLE_RECIPE_QUERY = gql`
       author {
         name
       }
+      categories {
+        title
+        slug
+      }
     }
   }
 

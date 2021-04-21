@@ -18,12 +18,26 @@
     }
   }
 
+  & a:active {
+    color: var(--warning-yellow);
+  }
+
   & a:hover,
   & a:focus,
   & a:active {
     /* color: var(--maroon);
     border-color: var(--maroon); */
   }
+
+  & .attribution {
+    font-size: 14px;
+    opacity: 0.3;
+  }
+}
+
+.attribution {
+  font-size: 14px;
+  opacity: 0.3;
 }
 
 .card:hover,
