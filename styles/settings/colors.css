@@ -7,6 +7,7 @@
   --dark-maroon: #87250b;
 
   --warning-yellow: #cdeb00;
+  --warning-yellow-dark: #95ab00;
 
   --yellow: rgb(240, 171, 0);
   --black: #000;
@@ -15,6 +16,7 @@
   --floral-white: #FBFAF0;
   --pale-white: #FEFEFB;
   --grey: #8C8C8B;
+  --dark-grey: #40403b;
   --nearly-black: #191918;
 
   --body-bg: var(--beige, antiquewhite);

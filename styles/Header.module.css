@@ -46,5 +46,5 @@
 
 .logo {
   height: 0.8em;
-  fill: currentColor;
+  fill: var(--dark-grey);
 }
