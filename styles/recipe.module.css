@@ -26,17 +26,6 @@
     }
   }
 
-  & .vitals {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-
-    @media (--medium) {
-      grid-template-columns: 35% 1fr;
-    }
-  }
-
   & .ingredients,
   & .instructions {
     font-size: 18px;
@@ -45,6 +34,22 @@
   & .instructions {
     letter-spacing: -0.5px;
   }
+}
+
+.vitals {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  margin-bottom: 40px;
+
+  @media (--medium) {
+    grid-template-columns: 35% 1fr;
+  }
+}
+
+.instructionsWrapper {
+  margin-top: 20px;
 }
 
 .featuredImage {

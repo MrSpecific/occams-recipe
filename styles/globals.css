@@ -37,7 +37,12 @@ a {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--heading-font-family);
   letter-spacing: -0.02em;
 
@@ -64,4 +69,8 @@ h1, h2, h3, h4, h5, h6 {
   @media (--xxlarge) {
     --breakpoint: xxlarge;
   }
+}
+
+::selection {
+  background-color: var(--warning-yellow);
 }

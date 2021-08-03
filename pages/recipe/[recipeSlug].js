@@ -36,8 +36,7 @@ export default function SingleRecipe(props) {
 
         <Wrapper width="standard" padding="true" gutter="true">
           <EstimatedTime {...props} />
-
-          <div className="vitals">
+          <div className={styles.vitals}>
             {ingredients && (
               <section className="ingredients">
                 <h2 className="decorated">Ingredients:</h2>
@@ -48,14 +47,16 @@ export default function SingleRecipe(props) {
             {instructions && (
               <section className="instructions">
                 <h2 className="decorated">Instructions:</h2>
-                <StructuredText data={instructions} />
+                <div className={styles.instructionsWrapper}>
+                  <StructuredText data={instructions} />
+                </div>
               </section>
             )}
           </div>
           {context && (
             <section className={styles.context}>
               <h2 className="decorated">Context:</h2>
-              {context}
+              <StructuredText data={context} />
             </section>
           )}
         </Wrapper>
@@ -91,7 +92,9 @@ const SINGLE_RECIPE_QUERY = gql`
       }
       prepTime
       cookingTime
-      # context,
+      context {
+        value
+      }
       ingredients {
         id
         ingredient
