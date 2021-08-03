@@ -1,11 +1,11 @@
-import { request, responsiveImageFragment } from '../data/datocms';
-import { gql } from 'graphql-request'
-import { Image, StructuredText } from 'react-datocms'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import { request, responsiveImageFragment } from "../data/datocms";
+import { gql } from "graphql-request";
+import { Image, StructuredText } from "react-datocms";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
 
-import Header from '../components/header'
-import IngredientsList from '../components/IngredientsList'
+import Header from "../components/Header";
+import IngredientsList from "../components/IngredientsList";
 
 export default function Home({ data }) {
   return (
@@ -19,7 +19,7 @@ export default function Home({ data }) {
       <Header></Header>
 
       <main className={styles.main}>
-        {data.allRecipes.map(recipe => {
+        {data.allRecipes.map((recipe) => {
           return (
             <div className="recipe">
               <h2>{recipe.title}</h2>
@@ -27,7 +27,7 @@ export default function Home({ data }) {
               <IngredientsList ingredients={recipe.ingredients} />
               <StructuredText data={recipe.instructions} />
             </div>
-          )
+          );
         })}
       </main>
 
@@ -37,28 +37,28 @@ export default function Home({ data }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
-  )
+  );
 }
 
 const HOMEPAGE_QUERY = gql`
   query HomePage($limit: IntType) {
     allRecipes(first: $limit) {
-      title,
-      slug,
+      title
+      slug
       cover {
         responsiveImage(imgixParams: { fit: crop, w: 1400, h: 600 }) {
           ...responsiveImageFragment
         }
-      },
+      }
       ingredients {
-        ingredient,
+        ingredient
         amount
-      },
+      }
       instructions {
         value
       }
@@ -66,16 +66,16 @@ const HOMEPAGE_QUERY = gql`
   }
 
   ${responsiveImageFragment}
-`
+`;
 
 export async function getStaticProps() {
   const data = await request({
     query: HOMEPAGE_QUERY,
     variables: { limit: 10 },
-    preview: false
+    preview: false,
   });
 
   return {
-    props: { data }
+    props: { data },
   };
 }

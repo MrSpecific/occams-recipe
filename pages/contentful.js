@@ -1,35 +1,34 @@
-import { useEffect, useState } from 'react'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { client } from '../data/contentful'
-import siteInfo from '../data/siteInfo'
+import { useEffect, useState } from "react";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import { client } from "../data/contentful";
+import siteInfo from "../data/siteInfo";
 
-import Header from '../components/header'
-import RecipeCard from '../components/recipeCard'
-
+import Header from "../components/Header";
+import RecipeCard from "../components/recipeCard";
 
 export default function Home() {
   async function fetchEntries(options = null) {
-    const entries = await client.getEntries(options)
-    if (entries.items) return entries.items
-    console.log(`Error getting Entries for ${contentType.name}.`)
+    const entries = await client.getEntries(options);
+    if (entries.items) return entries.items;
+    console.log(`Error getting Entries for ${contentType.name}.`);
   }
 
-  const [recipes, setRecipes] = useState([])
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     async function getRecipes() {
       // const allPosts = await fetchEntries()
       const allPosts = await fetchEntries({
-        'content_type': 'recipe',
-      })
+        content_type: "recipe",
+      });
 
-      setRecipes([...allPosts])
+      setRecipes([...allPosts]);
       // setRecipes(([...allPosts.filter(post => post.sys.contentType === 'recipe')]))
     }
 
-    getRecipes()
-  }, [])
+    getRecipes();
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -40,13 +39,11 @@ export default function Home() {
 
       <main className={styles.main}>
         {recipes.length > 0
-        ? recipes.map((p, i) => (
-          <RecipeCard {...p} key={i}/>
-          ))
-        : null}
+          ? recipes.map((p, i) => <RecipeCard {...p} key={i} />)
+          : null}
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.js</code>
         </p>
 
@@ -87,10 +84,10 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>
-  )
+  );
 }

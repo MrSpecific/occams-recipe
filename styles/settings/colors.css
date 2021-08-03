@@ -13,10 +13,11 @@
   --black: #000;
   --white: #fff;
 
-  --floral-white: #FBFAF0;
-  --pale-white: #FEFEFB;
-  --grey: #8C8C8B;
+  --floral-white: #fbfaf0;
+  --pale-white: #fefefb;
+  --grey: #8c8c8b;
   --dark-grey: #40403b;
+
   --nearly-black: #191918;
 
   --body-bg: var(--beige, antiquewhite);

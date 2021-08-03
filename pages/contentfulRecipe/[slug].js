@@ -1,35 +1,39 @@
-import { useRouter } from 'next/router'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { recipes, getPaths, getEntry } from '../../data/data'
+import { useRouter } from "next/router";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { recipes, getPaths, getEntry } from "../../data/data";
 
-import Header from '../../components/header'
+import Header from "../../components/Header";
 
 export default function SingleRecipe(props) {
   const { fields } = props;
   const router = useRouter();
   const id = router.query;
-  console.log('Props:', props)
-  console.log('Fields:', fields)
+  console.log("Props:", props);
+  console.log("Fields:", fields);
 
   return (
     <>
       <Header title={fields.title}></Header>
       <h2>{fields.title}</h2>
-      <div className="description">{documentToReactComponents(fields.description)}</div>
-      <div className="instructions">{documentToReactComponents(fields.instructions)}</div>
+      <div className="description">
+        {documentToReactComponents(fields.description)}
+      </div>
+      <div className="instructions">
+        {documentToReactComponents(fields.instructions)}
+      </div>
     </>
-  )
+  );
 }
 
 export async function getStaticPaths() {
   const allRecipes = await recipes();
 
-  const paths = getPaths(allRecipes)
+  const paths = getPaths(allRecipes);
 
   return {
     paths,
-    fallback: false
-  }
+    fallback: false,
+  };
 }
 
 export async function getStaticProps({ params }) {
@@ -40,6 +44,6 @@ export async function getStaticProps({ params }) {
   });
 
   return {
-    props: recipeData
-  }
+    props: recipeData,
+  };
 }

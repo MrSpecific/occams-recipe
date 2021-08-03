@@ -4,7 +4,7 @@ import { Image, StructuredText } from "react-datocms";
 import { recipes, getPaths, getEntry } from "@data/data";
 import { request, responsiveImageFragment, getRecipeList } from "@data/datocms";
 
-import Header from "@components/header";
+import Header from "@components/Header";
 import Footer from "@components/footer";
 import Wrapper from "@components/layout/Wrapper";
 import Attribution from "@components/Attribution";
