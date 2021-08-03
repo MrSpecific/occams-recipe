@@ -8,8 +8,8 @@ export default function SingleRecipe(props) {
   const { fields } = props;
   const router = useRouter();
   const id = router.query;
-  console.log("Props:", props);
-  console.log("Fields:", fields);
+  // console.log("Props:", props);
+  // console.log("Fields:", fields);
 
   return (
     <>
