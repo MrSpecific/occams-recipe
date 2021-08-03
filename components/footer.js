@@ -1,9 +1,7 @@
+import styles from "@styles/Footer.module.css";
+// import siteInfo from "@data/siteInfo";
 
-
-import styles from '../styles/Footer.module.css'
-import siteInfo from '../lib/siteInfo';
-
-import Link from 'next/link';
+import Link from "next/link";
 
 const Footer = (props) => {
   return (
@@ -13,14 +11,14 @@ const Footer = (props) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <a>
-        {/* Powered by{' '}
+        <a className={styles.attribution}>
+          {/* Powered by{' '}
         <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} /><br /> */}
-        Created by Will Christenson
+          Created by Will Christenson
         </a>
       </Link>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

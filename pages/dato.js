@@ -1,4 +1,4 @@
-import { request, responsiveImageFragment } from '../lib/datocms';
+import { request, responsiveImageFragment } from '../data/datocms';
 import { gql } from 'graphql-request'
 import { Image, StructuredText } from 'react-datocms'
 import Head from 'next/head'
@@ -17,7 +17,7 @@ export default function Home({ data }) {
       `}</style>
 
       <Header></Header>
-      
+
       <main className={styles.main}>
         {data.allRecipes.map(recipe => {
           return (

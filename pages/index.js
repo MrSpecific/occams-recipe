@@ -1,4 +1,4 @@
-import { request, responsiveImageFragment } from '@lib/datocms';
+import { request, responsiveImageFragment } from 'data/datocms';
 import { gql } from 'graphql-request'
 // import { Image, StructuredText } from 'react-datocms'
 import styles from '@styles/Home.module.css'
@@ -17,7 +17,7 @@ export default function Home({ data }) {
           font-weight: bold;
         }
       `}</style>
-      
+
       <main className={styles.main}>
         <ol className={styles.cardList}>
           {data.allRecipes.map(recipe => {

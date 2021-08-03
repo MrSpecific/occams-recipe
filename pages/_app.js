@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import siteInfo from '@lib/siteInfo';
+import siteInfo from 'data/siteInfo';
 import '../styles/globals.css'
 
 function Application({ Component, pageProps }) {

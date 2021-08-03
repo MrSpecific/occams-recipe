@@ -1,6 +1,7 @@
 @import "./settings/breakpoints";
 
-.recipe {}
+.recipe {
+}
 
 .recipe :global {
   & .attribution {
@@ -9,7 +10,7 @@
   }
 
   & .wrapper {
-     &.padding {
+    &.padding {
       padding-top: var(--section-padding-y);
       padding-bottom: var(--section-padding-y);
     }
@@ -35,7 +36,7 @@
       grid-template-columns: 35% 1fr;
     }
   }
-  
+
   & .ingredients,
   & .instructions {
     font-size: 18px;
@@ -43,5 +44,14 @@
 
   & .instructions {
     letter-spacing: -0.5px;
+  }
+}
+
+.featuredImage {
+  width: 100%;
+  min-height: 100vh;
+
+  & img {
+    object-fit: cover;
   }
 }

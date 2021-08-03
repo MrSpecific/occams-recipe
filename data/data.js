@@ -16,8 +16,8 @@ export const getIds = (entries) => {
 
 export const getPaths = (entries, identifier = 'slug') => {
   const paths = entries.map(entry => {
-    return { 
-      params: { 
+    return {
+      params: {
         [identifier]: entry.slug || entry.fields.slug
       }
     }

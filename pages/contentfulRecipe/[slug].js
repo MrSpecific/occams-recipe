@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { recipes, getPaths, getEntry } from '../../lib/data'
+import { recipes, getPaths, getEntry } from '../../data/data'
 
 import Header from '../../components/header'
 
@@ -10,7 +10,7 @@ export default function SingleRecipe(props) {
   const id = router.query;
   console.log('Props:', props)
   console.log('Fields:', fields)
-  
+
   return (
     <>
       <Header title={fields.title}></Header>

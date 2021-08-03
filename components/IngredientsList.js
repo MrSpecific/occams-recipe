@@ -1,4 +1,4 @@
-import fractionize from '@lib/utils/fractionize'
+import fractionize from '@utils/fractionize'
 
 const IngredientsList = (props) => {
   const { ingredients } = props;
@@ -9,12 +9,12 @@ const IngredientsList = (props) => {
         .ingredients-list {
           list-style: disc;
         }
-        
+
         .ingredient-name {
           // font-weight: bold;
           color: var(--nearly-black);
         }
-        
+
         .ingredient-amount {
           font-weight: bold;
         }

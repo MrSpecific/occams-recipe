@@ -1,5 +1,5 @@
 import styles from '@styles/Header.module.css'
-import siteInfo from '@lib/siteInfo'
+import siteInfo from 'data/siteInfo'
 
 import Link from 'next/link'
 import classNames from 'classnames'
