@@ -1,7 +1,7 @@
-import Head from 'next/head'
+import Head from "next/head";
 
-import siteInfo from 'data/siteInfo';
-import '../styles/globals.css'
+import siteInfo from "@data/siteInfo";
+import "../styles/globals.css";
 
 function Application({ Component, pageProps }) {
   return (
@@ -11,7 +11,7 @@ function Application({ Component, pageProps }) {
       </Head>
       <Component {...pageProps} />
     </>
-  )
+  );
 }
 
-export default Application
+export default Application;

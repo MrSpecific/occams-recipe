@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { client } from "../data/contentful";
-import siteInfo from "../data/siteInfo";
+import { client } from "@data/contentful";
+import siteInfo from "@data/siteInfo";
 
 import Header from "../components/Header";
 import RecipeCard from "../components/recipeCard";

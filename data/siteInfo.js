@@ -1,6 +1,8 @@
 const siteInfo = {
   title: "Occam's Recipe",
-  permalink: "https://occam.dangercode.net",
-}
+  url: "https://occam.dangercode.net",
+  description: "Simple, reliable, easy to read recipes",
+  opengraphImage: "/opengraph.png",
+};
 
-export default siteInfo
+export default siteInfo;
