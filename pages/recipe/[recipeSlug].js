@@ -86,8 +86,8 @@ export default function SingleRecipe(props) {
           </div>
 
           <div className={styles.recipeMeta}>
-            {categories && <RecipeCategories categories={categories} />}
-            {tags && <RecipeTags tags={tags} />}
+            {categories && categories.length > 0 && <RecipeCategories categories={categories} />}
+            {tags && tags.length > 0 && <RecipeTags tags={tags} />}
           </div>
 
           {context && (
