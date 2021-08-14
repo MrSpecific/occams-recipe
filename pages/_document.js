@@ -19,6 +19,7 @@ class MyDocument extends Document {
           <meta property="og:description" content={siteInfo.description} />
           <meta property="og:type" content="website" />
           <meta property="og:image" content={siteInfo.opengraphImage} />
+          <meta property="twitter:image" content={siteInfo.opengraphImage} />
           {/* <link rel="preconnect" href="https://fonts.gstatic.com" /> */}
           {/* <link href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@700&display=swap" rel="stylesheet"></link> */}
           <link

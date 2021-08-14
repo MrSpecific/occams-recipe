@@ -1,20 +1,54 @@
-import { useRouter } from "next/router";
-import { gql } from "graphql-request";
-import { Image, StructuredText } from "react-datocms";
-import { recipes, getPaths, getEntry } from "@data/data";
-import { request, responsiveImageFragment, getRecipeList } from "@data/datocms";
+import { useRouter } from 'next/router';
+import { gql } from 'graphql-request';
+import { Image, StructuredText } from 'react-datocms';
+import { recipes, getPaths, getEntry } from '@data/data';
+import { request, responsiveImageFragment, getRecipeList } from '@data/datocms';
 
-import Header from "@components/Header";
-import Footer from "@components/footer";
-import Wrapper from "@components/layout/Wrapper";
-import Attribution from "@components/Attribution";
-import EstimatedTime from "@components/EstimatedTime";
-import IngredientsList from "@components/IngredientsList";
+import Header from '@components/Header';
+import Footer from '@components/footer';
+import Wrapper from '@components/layout/Wrapper';
+import Attribution from '@components/Attribution';
+import EstimatedTime from '@components/EstimatedTime';
+import IngredientsList from '@components/IngredientsList';
 
-import styles from "@styles/recipe.module.css";
+import styles from '@styles/recipe.module.css';
+
+export const RecipeCategories = ({ categories }) => {
+  return (
+    <div>
+      <h2 className="h4 decorated">Categories</h2>
+      <ul className={styles.categoriesList}>
+        {categories.map((category) => {
+          return (
+            <li key={category.slug} className={styles.categoryItem}>
+              {category.title}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
+
+export const RecipeTags = ({ tags }) => {
+  return (
+    <div>
+      <h2 className="h4 decorated">Tags</h2>
+      <ul className={styles.tagsList}>
+        {tags.map((tag) => {
+          return (
+            <li key={tag.title} className={styles.tagItem}>
+              {tag.title}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 
 export default function SingleRecipe(props) {
-  const { title, ingredients, instructions, context } = props;
+  const { title, ingredients, instructions, context, categories, tags } = props;
   const router = useRouter();
   const id = router.query;
 
@@ -29,10 +63,7 @@ export default function SingleRecipe(props) {
 
       <div className={styles.recipe}>
         <Attribution {...props}></Attribution>
-        <Image
-          data={props.cover.responsiveImage}
-          className={styles.featuredImage}
-        />
+        <Image data={props.cover.responsiveImage} className={styles.featuredImage} />
 
         <Wrapper width="standard" padding="true" gutter="true">
           <EstimatedTime {...props} />
@@ -53,10 +84,19 @@ export default function SingleRecipe(props) {
               </section>
             )}
           </div>
+
+          <div className={styles.recipeMeta}>
+            {categories && <RecipeCategories categories={categories} />}
+            {tags && <RecipeTags tags={tags} />}
+          </div>
+
           {context && (
             <section className={styles.context}>
               <h2 className="decorated">Context:</h2>
-              <StructuredText data={context} />
+
+              <div className={styles.contextContent}>
+                <StructuredText data={context} />
+              </div>
             </section>
           )}
         </Wrapper>
@@ -70,7 +110,7 @@ export default function SingleRecipe(props) {
 export async function getStaticPaths() {
   const allRecipes = await getRecipeList();
 
-  const paths = getPaths(allRecipes, "recipeSlug");
+  const paths = getPaths(allRecipes, 'recipeSlug');
 
   return {
     paths,
@@ -109,6 +149,12 @@ const SINGLE_RECIPE_QUERY = gql`
       categories {
         title
         slug
+      }
+      tags {
+        title
+      }
+      gallery {
+        id
       }
     }
   }

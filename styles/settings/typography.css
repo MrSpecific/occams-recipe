@@ -1,7 +1,7 @@
 :root {
-  --neuton: 'Neuton', serif;
-  --pt-sans: 'PT Sans', sans-serif;
-  --jetbrains-mono: 'JetBrains Mono';
+  --neuton: "Neuton", serif;
+  --pt-sans: "PT Sans", sans-serif;
+  --jetbrains-mono: "JetBrains Mono";
   /* --cabin: 'Cabin', sans-serif; */
 
   /* --font-family-primary: var(--neuton);
@@ -10,4 +10,11 @@
   --font-family-secondary: var(--neuton);
 
   --heading-font-family: var(--jetbrains-mono);
+
+  --font-size-h1: 36px;
+  --font-size-h2: 24px;
+  --font-size-h3: 20px;
+  --font-size-h4: 18px;
+  --font-size-h5: 18px;
+  --font-size-h6: 16px;
 }

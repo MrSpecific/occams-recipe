@@ -49,7 +49,7 @@
 }
 
 .instructionsWrapper {
-  margin-top: 20px;
+  margin-top: var(--spacer);
 }
 
 .featuredImage {
@@ -59,4 +59,28 @@
   & img {
     object-fit: cover;
   }
+}
+
+.recipeMeta {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacer);
+
+  @media (--medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.categoriesList {
+  display: flex;
+  gap: var(--spacer);
+  margin: var(--spacer) 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+  color: var(--dark-grey);
+}
+
+.contextContent {
+  margin-top: var(--spacer);
 }

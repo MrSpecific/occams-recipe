@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "module": "es6",
+    "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
-      "@data/*": ["data/*"],
-      "@public/*": ["public/*"],
-      "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "@components/*": ["./components/*"],
+      "@data/*": ["./data/*"],
+      "@pages/*": ["./pages/*"],
+      "@public/*": ["./public/*"],
+      "@styles/*": ["./styles/*"],
+      "@utils/*": ["./utils/*"]
     }
-  }
+  },
+  "exclude": ["node_modules"]
 }
