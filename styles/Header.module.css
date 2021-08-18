@@ -1,23 +1,25 @@
 .header {
+  display: grid;
+  grid-template-columns: auto 1fr;
   background-color: var(--pale-white);
   padding: var(--edge-space);
 
   & h1 {
+    line-height: 1;
     /* text-transform: uppercase; */
     letter-spacing: -0.07em;
   }
 }
 
-.title a {
-  /* color: #0070f3; */
-  text-decoration: none;
-}
+/* .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-.title a:hover,
-.title a:focus,
-.title a:active {
-  /* text-decoration: underline; */
-}
+  & a {
+    text-decoration: none;
+  }
+} */
 
 .title {
   margin: 0;
@@ -28,7 +30,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
     color: var(--almost-black);
+    text-decoration: none;
 
     &:hover svg {
       color: var(--yellow);
@@ -39,11 +43,7 @@
   }
 }
 
-.title,
-.description {
-}
-
 .logo {
   height: 0.8em;
-  fill: var(--dark-grey);
+  fill: var(--warning-yellow-dark);
 }

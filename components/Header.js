@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import classNames from 'classnames';
 
-// import Nav from '@components/Nav';
+import Nav from '@components/Nav';
 import styles from '@styles/Header.module.css';
 import siteInfo from '@data/siteInfo';
 import Razor from '../public/svg/razor.svg';
@@ -17,6 +17,7 @@ const Header = (props) => {
 
   return (
     <header className={headerClass}>
+      <Nav />
       <h1 className={styles.title}>
         <Link href={'/'}>
           <a>
@@ -26,7 +27,6 @@ const Header = (props) => {
         </Link>
       </h1>
       {props.children}
-      {/* <Nav /> */}
     </header>
   );
 };
