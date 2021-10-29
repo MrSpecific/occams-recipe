@@ -31,10 +31,16 @@
     "@svgr/webpack": "^5.5.0",
     "babel-plugin-inline-react-svg": "^2.0.1",
     "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
     "eslint-config-next": "^11.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
     "postcss": "^8.3.6",
     "postcss-import": "^14.0.1",
     "postcss-pxtorem": "^6.0.0",
+    "prettier": "^2.4.1",
     "svgo": "^2.3.1"
   },
   "browserslist": [
