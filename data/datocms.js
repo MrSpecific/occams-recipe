@@ -1,24 +1,21 @@
-import { GraphQLClient } from 'graphql-request'
-import { gql } from 'graphql-request'
+import { gql, GraphQLClient } from 'graphql-request';
 
 export function request({ query, variables, preview }) {
-  const endpoint = preview
-    ? `https://graphql.datocms.com/preview`
-    : `https://graphql.datocms.com/`;
+  const endpoint = preview ? `https://graphql.datocms.com/preview` : `https://graphql.datocms.com/`;
 
   const client = new GraphQLClient(endpoint, {
     headers: {
-      authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`
-    }
+      authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`,
+    },
   });
-  
+
   return client.request(query, variables);
 }
 
 // See: https://www.datocms.com/blog/offer-responsive-progressive-lqip-images-in-2020
 export const responsiveImageFragment = gql`
-fragment responsiveImageFragment on ResponsiveImage {
-  srcSet
+  fragment responsiveImageFragment on ResponsiveImage {
+    srcSet
     webpSrcSet
     sizes
     src
@@ -29,14 +26,14 @@ fragment responsiveImageFragment on ResponsiveImage {
     title
     bgColor
     base64
-}
-`
+  }
+`;
 
 const RECIPE_LIST_QUERY = gql`
   query HomePage($limit: IntType) {
     allRecipes(first: $limit) {
-      title,
-      slug,
+      title
+      slug
       cover {
         responsiveImage(imgixParams: { fit: crop, w: 600, h: 600 }) {
           ...responsiveImageFragment
@@ -46,16 +43,16 @@ const RECIPE_LIST_QUERY = gql`
   }
 
   ${responsiveImageFragment}
-`
+`;
 
 export async function getRecipeList(options = {}) {
-  const { limit } = options
+  const { limit } = options;
 
   const data = await request({
     query: RECIPE_LIST_QUERY,
     // variables: { limit: 10 },
     variables: { limit },
-    preview: false
+    preview: false,
   });
 
   return data.allRecipes;

@@ -1,11 +1,11 @@
-import { request, responsiveImageFragment } from "data/datocms";
-import { gql } from "graphql-request";
+import { request, responsiveImageFragment } from '@data/datocms';
+import { gql } from 'graphql-request';
 // import { Image, StructuredText } from 'react-datocms'
-import styles from "@styles/Home.module.css";
+import styles from '@styles/Home.module.css';
 
-import Header from "@components/Header";
-import Footer from "@components/footer";
-import RecipeCard from "@components/recipeCard";
+import Header from '@components/Header';
+import Footer from '@components/footer';
+import RecipeCard from '@components/recipeCard';
 
 export default function Home({ data }) {
   return (

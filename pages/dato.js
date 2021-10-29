@@ -1,11 +1,12 @@
-import { request, responsiveImageFragment } from "../data/datocms";
-import { gql } from "graphql-request";
-import { Image, StructuredText } from "react-datocms";
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
+import Head from 'next/head';
+import { Image, StructuredText } from 'react-datocms';
+import { gql } from 'graphql-request';
 
-import Header from "../components/Header";
-import IngredientsList from "../components/IngredientsList";
+import { request, responsiveImageFragment } from '../data/datocms';
+import styles from '../styles/Home.module.css';
+
+import Header from '../components/Header';
+import IngredientsList from '../components/IngredientsList';
 
 export default function Home({ data }) {
   return (
@@ -21,7 +22,7 @@ export default function Home({ data }) {
       <main className={styles.main}>
         {data.allRecipes.map((recipe) => {
           return (
-            <div className="recipe">
+            <div className="recipe" key={recipe.title}>
               <h2>{recipe.title}</h2>
               <Image data={recipe.cover.responsiveImage} />
               <IngredientsList ingredients={recipe.ingredients} />
@@ -37,8 +38,7 @@ export default function Home({ data }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
+          Powered by <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
         </a>
       </footer>
     </div>

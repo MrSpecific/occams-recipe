@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react";
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import { client } from "@data/contentful";
-import siteInfo from "@data/siteInfo";
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
+import { client } from '@data/contentful';
+import siteInfo from '@data/siteInfo';
+import styles from '../styles/Home.module.css';
 
-import Header from "../components/Header";
-import RecipeCard from "../components/recipeCard";
+import Header from '../components/Header';
+import RecipeCard from '../components/recipeCard';
+
+const { error } = console;
 
 export default function Home() {
   async function fetchEntries(options = null) {
     const entries = await client.getEntries(options);
     if (entries.items) return entries.items;
-    console.log(`Error getting Entries for ${contentType.name}.`);
+    error(`Error getting Entries for ${options.content_type}.`);
+    return false;
   }
 
   const [recipes, setRecipes] = useState([]);
@@ -20,7 +23,7 @@ export default function Home() {
     async function getRecipes() {
       // const allPosts = await fetchEntries()
       const allPosts = await fetchEntries({
-        content_type: "recipe",
+        content_type: 'recipe',
       });
 
       setRecipes([...allPosts]);
@@ -38,13 +41,10 @@ export default function Home() {
       <Header></Header>
 
       <main className={styles.main}>
-        {recipes.length > 0
-          ? recipes.map((p, i) => <RecipeCard {...p} key={i} />)
-          : null}
+        {recipes.length > 0 ? recipes.map((p, i) => <RecipeCard {...p} key={i} />) : null}
 
         <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/index.js</code>
+          Get started by editing <code className={styles.code}>pages/index.js</code>
         </p>
 
         <div className={styles.grid}>
@@ -58,10 +58,7 @@ export default function Home() {
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
+          <a href="https://github.com/vercel/next.js/tree/master/examples" className={styles.card}>
             <h3>Examples &rarr;</h3>
             <p>Discover and deploy boilerplate example Next.js projects.</p>
           </a>
@@ -71,9 +68,7 @@ export default function Home() {
             className={styles.card}
           >
             <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
           </a>
         </div>
       </main>
@@ -83,10 +78,7 @@ export default function Home() {
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
+        ></a>
       </footer>
     </div>
   );

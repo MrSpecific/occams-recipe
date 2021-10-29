@@ -12,6 +12,7 @@ module.exports = {
     'react/prop-types': 'off',
     'no-unused-vars': 'warn',
     'prettier/prettier': ['error'],
+    'class-methods-use-this': 'off',
   },
   settings: {
     'import/resolver': {
@@ -23,6 +24,7 @@ module.exports = {
           ['@public', './public/'],
           ['@styles', './styles/'],
           ['@utilities', './utilities/'],
+          ['@utils', './utils/'],
         ],
         extensions: ['.js', '.jsx'],
       },

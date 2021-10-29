@@ -1,9 +1,9 @@
-import { Image } from 'react-datocms'
-import ReactMarkdown from 'react-markdown'
+import { Image } from 'react-datocms';
+import ReactMarkdown from 'react-markdown';
 
-import Attribution from '@components/Attribution'
+import Attribution from '@components/Attribution';
 
-import styles from '@styles/RecipeCard.module.css'
+import styles from '@styles/RecipeCard.module.css';
 
 import Link from 'next/link';
 
@@ -18,12 +18,12 @@ const RecipeCard = (recipe) => {
       <Link href={`/recipe/${recipe.slug}`}>
         <a>
           <Attribution {...recipe} className={styles.attribution}></Attribution>
-          <Image data={recipe.cover.responsiveImage} className={styles.image}/>
+          <Image data={recipe.cover.responsiveImage} className={styles.image} />
           <ReactMarkdown>{recipe.description}</ReactMarkdown>
         </a>
       </Link>
     </div>
-  )
-}
+  );
+};
 
-export default RecipeCard
+export default RecipeCard;

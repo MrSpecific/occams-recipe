@@ -1,7 +1,7 @@
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import styles from '../styles/RecipeCard.module.css'
-
 import Link from 'next/link';
+
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import styles from '../styles/RecipeCard.module.css';
 
 const RecipeCard = (props) => {
   const { fields } = props;
@@ -16,7 +16,7 @@ const RecipeCard = (props) => {
       <span>{fields.date}</span>
       <div className="description">{documentToReactComponents(fields.description)}</div>
     </div>
-  )
-}
+  );
+};
 
-export default RecipeCard
+export default RecipeCard;

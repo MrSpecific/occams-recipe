@@ -2,5 +2,5 @@
 
 export default (req, res) => {
   // console.log(req.query)
-  res.status(200).json({ name: 'John Doe' })
-}
+  res.status(200).json({ name: 'John Doe' });
+};

@@ -1,8 +1,8 @@
-import { useRouter } from "next/router";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { recipes, getPaths, getEntry } from "../../data/data";
+import { useRouter } from 'next/router';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { recipes, getPaths, getEntry } from '../../data/data';
 
-import Header from "../../components/Header";
+import Header from '../../components/Header';
 
 export default function SingleRecipe(props) {
   const { fields } = props;
@@ -15,12 +15,8 @@ export default function SingleRecipe(props) {
     <>
       <Header title={fields.title}></Header>
       <h2>{fields.title}</h2>
-      <div className="description">
-        {documentToReactComponents(fields.description)}
-      </div>
-      <div className="instructions">
-        {documentToReactComponents(fields.instructions)}
-      </div>
+      <div className="description">{documentToReactComponents(fields.description)}</div>
+      <div className="instructions">{documentToReactComponents(fields.instructions)}</div>
     </>
   );
 }

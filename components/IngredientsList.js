@@ -1,4 +1,4 @@
-import fractionize from '@utils/fractionize'
+import fractionize from '@utils/fractionize';
 
 const IngredientsList = (props) => {
   const { ingredients } = props;
@@ -19,16 +19,16 @@ const IngredientsList = (props) => {
           font-weight: bold;
         }
       `}</style>
-      {ingredients.map(row => {
+      {ingredients.map((row) => {
         return (
           <li key={row.id} className="ingredient">
             <span className="ingredient-amount">{fractionize(row.amount)}</span>
             <span className="ingredient-name"> {row.ingredient}</span>
           </li>
-        )
+        );
       })}
     </ol>
-  )
-}
+  );
+};
 
-export default IngredientsList
+export default IngredientsList;

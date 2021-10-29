@@ -2,38 +2,38 @@ import { fetchEntries } from './contentful';
 
 export const recipes = async () => {
   const allRecipes = await fetchEntries({
-    'content_type': 'recipe',
-  })
+    content_type: 'recipe',
+  });
 
-  return allRecipes
-}
+  return allRecipes;
+};
 
 export const getIds = (entries) => {
-  const ids = entries.map(entry => entry.fields.slug)
+  const ids = entries.map((entry) => entry.fields.slug);
 
-  return ids
-}
+  return ids;
+};
 
 export const getPaths = (entries, identifier = 'slug') => {
-  const paths = entries.map(entry => {
+  const paths = entries.map((entry) => {
     return {
       params: {
-        [identifier]: entry.slug || entry.fields.slug
-      }
-    }
-  })
+        [identifier]: entry.slug || entry.fields.slug,
+      },
+    };
+  });
 
-  return paths
-}
+  return paths;
+};
 
 export const getEntry = (options) => {
   let entry;
 
   try {
-    entry = options.entries.find(p => p.fields.slug === options.slug);
+    entry = options.entries.find((p) => p.fields.slug === options.slug);
   } catch (error) {
     entry = options.entries[1];
   }
 
   return entry;
-}
+};
