@@ -1,14 +1,16 @@
-.standard, .narrow, .wide {
+.standard,
+.narrow,
+.wide {
   margin-left: auto;
   margin-right: auto;
 }
 
 .standard {
-  max-width: 900px;
+  max-width: 1100px;
 }
 
 .narrow {
-  max-width: 600px;
+  max-width: 700px;
 }
 
 .wide {

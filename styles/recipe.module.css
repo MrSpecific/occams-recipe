@@ -4,11 +4,6 @@
 }
 
 .recipe :global {
-  & .attribution {
-    padding: 0 var(--edge-space) var(--edge-space);
-    text-indent: var(--edge-space);
-  }
-
   & .wrapper {
     &.padding {
       padding-top: var(--section-padding-y);
@@ -34,6 +29,11 @@
   & .instructions {
     letter-spacing: -0.5px;
   }
+}
+
+.attribution {
+  padding: var(--edge-space);
+  text-align: center;
 }
 
 .vitals {
@@ -83,4 +83,9 @@
 
 .contextContent {
   margin-top: var(--spacer);
+}
+
+.ingredientsInner {
+  position: sticky;
+  top: var(--spacer);
 }

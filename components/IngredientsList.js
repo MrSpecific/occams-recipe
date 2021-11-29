@@ -1,10 +1,12 @@
 import fractionize from '@utils/fractionize';
 
+import styles from '@styles/components/IngredientsList.module.css';
+
 const IngredientsList = (props) => {
   const { ingredients } = props;
 
   return (
-    <ol className="ingredients-list">
+    <ol className={`ingredients-list ${styles.ingredientsList}`}>
       <style jsx>{`
         .ingredients-list {
           list-style: disc;
@@ -21,7 +23,7 @@ const IngredientsList = (props) => {
       `}</style>
       {ingredients.map((row) => {
         return (
-          <li key={row.id} className="ingredient">
+          <li key={row.id} className={`ingredient ${styles.ingredient}`}>
             <span className="ingredient-amount">{fractionize(row.amount)}</span>
             <span className="ingredient-name"> {row.ingredient}</span>
           </li>

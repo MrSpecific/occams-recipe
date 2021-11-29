@@ -1,7 +1,9 @@
-const Attribution = (props) => {
+import classNames from 'classnames';
+
+const Attribution = ({ className, ...props }) => {
   const authors = props.author && props.author.map((singleAuthor) => singleAuthor.name);
   return (
-    <div className="attribution">
+    <div className={classNames(['attribution', [className]])}>
       <style jsx>{`
         .attribution {
           display: block;

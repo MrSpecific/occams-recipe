@@ -107,6 +107,12 @@ h6,
   }
 }
 
+.content {
+  & > p {
+    margin-bottom: var(--content-spacer);
+  }
+}
+
 ::selection {
   background-color: var(--warning-yellow);
 }

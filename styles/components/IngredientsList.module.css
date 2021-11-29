@@ -1,0 +1,6 @@
+.ingredientsList {
+}
+
+.ingredient {
+  margin-bottom: calc(var(--content-spacer) / 2);
+}

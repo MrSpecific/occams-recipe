@@ -1,7 +1,8 @@
 import { useRouter } from 'next/router';
 import { gql } from 'graphql-request';
 import { Image, StructuredText } from 'react-datocms';
-import { recipes, getPaths, getEntry } from '@data/data';
+import classNames from 'classnames';
+import { getPaths } from '@data/data';
 import { request, responsiveImageFragment, getRecipeList } from '@data/datocms';
 
 import Header from '@components/Header';
@@ -62,7 +63,8 @@ export default function SingleRecipe(props) {
       <Header title={title}></Header>
 
       <div className={styles.recipe}>
-        <Attribution {...props}></Attribution>
+        <Attribution {...props} className={styles.attribution}></Attribution>
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image data={props.cover.responsiveImage} className={styles.featuredImage} />
 
         <Wrapper width="standard" padding="true" gutter="true">
@@ -70,15 +72,17 @@ export default function SingleRecipe(props) {
           <div className={styles.vitals}>
             {ingredients && (
               <section className="ingredients">
-                <h2 className="decorated">Ingredients:</h2>
-                <IngredientsList ingredients={ingredients} />
+                <div className={styles.ingredientsInner}>
+                  <h2 className="decorated">Ingredients:</h2>
+                  <IngredientsList ingredients={ingredients} />
+                </div>
               </section>
             )}
 
             {instructions && (
               <section className="instructions">
                 <h2 className="decorated">Instructions:</h2>
-                <div className={styles.instructionsWrapper}>
+                <div className={classNames(['content', [styles.instructionsWrapper]])}>
                   <StructuredText data={instructions} />
                 </div>
               </section>
