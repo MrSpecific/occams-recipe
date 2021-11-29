@@ -8,7 +8,7 @@ const Attribution = ({ className, ...props }) => {
         .attribution {
           display: block;
           margin-bottom: 10px;
-          color: var(--grey);
+          color: var(--dark-grey);
           font-style: italic;
           font-size: 12px;
         }
