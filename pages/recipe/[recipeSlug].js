@@ -54,14 +54,13 @@ export const RecipeTags = ({ tags }) => {
 export default function SingleRecipe(props) {
   const { title, slug, description, cover, ingredients, instructions, context, categories, tags } =
     props;
-  const router = useRouter();
-  const id = router.query;
-  console.log(cover.responsiveImage.src);
+  // const router = useRouter();
+  // const id = router.query;
 
   return (
     <Layout>
       <Head>
-        <meta property="og:title" content={title} key="og:title" />
+        <meta property="og:title" content={`${title} | ${siteInfo.title}`} key="og:title" />
         <meta property="og:url" content={`${siteInfo.url}/recipe/${slug}`} key="og:url" />
         <meta property="og:description" content={description} key="og:description" />
         <meta property="og:type" content="article" key="og:type" />
