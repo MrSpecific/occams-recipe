@@ -52,8 +52,18 @@ export const RecipeTags = ({ tags }) => {
 };
 
 export default function SingleRecipe(props) {
-  const { title, slug, description, cover, ingredients, instructions, context, categories, tags } =
-    props;
+  const {
+    title,
+    slug,
+    description,
+    date,
+    cover,
+    ingredients,
+    instructions,
+    context,
+    categories,
+    tags,
+  } = props;
   // const router = useRouter();
   // const id = router.query;
 
@@ -64,6 +74,7 @@ export default function SingleRecipe(props) {
         <meta property="og:url" content={`${siteInfo.url}/recipe/${slug}`} key="og:url" />
         <meta property="og:description" content={description} key="og:description" />
         <meta property="og:type" content="article" key="og:type" />
+        <meta property="article:published_time" content={date} />
         <meta
           property="og:image"
           content={cover?.responsiveImage.src || siteInfo.opengraphImage}
