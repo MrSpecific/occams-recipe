@@ -3,35 +3,38 @@ import { gql } from 'graphql-request';
 // import { Image, StructuredText } from 'react-datocms'
 import styles from '@styles/Home.module.css';
 
+import Layout from '@components/layout/Layout';
 import Header from '@components/Header';
 import Footer from '@components/footer';
 import RecipeCard from '@components/recipeCard';
 
 export default function Home({ data }) {
   return (
-    <div className={styles.container}>
-      <Header></Header>
+    <Layout>
+      <div className={styles.container}>
+        <Header></Header>
 
-      <style jsx>{`
-        .recipe :global(.ingredient-name) {
-          font-weight: bold;
-        }
-      `}</style>
+        <style jsx>{`
+          .recipe :global(.ingredient-name) {
+            font-weight: bold;
+          }
+        `}</style>
 
-      <main className={styles.main}>
-        <ol className={styles.cardList}>
-          {data.allRecipes.map((recipe) => {
-            return (
-              <li key={recipe.id}>
-                <RecipeCard {...recipe}></RecipeCard>
-              </li>
-            );
-          })}
-        </ol>
-      </main>
+        <main className={styles.main}>
+          <ol className={styles.cardList}>
+            {data.allRecipes.map((recipe) => {
+              return (
+                <li key={recipe.id}>
+                  <RecipeCard {...recipe}></RecipeCard>
+                </li>
+              );
+            })}
+          </ol>
+        </main>
 
-      <Footer></Footer>
-    </div>
+        <Footer></Footer>
+      </div>
+    </Layout>
   );
 }
 

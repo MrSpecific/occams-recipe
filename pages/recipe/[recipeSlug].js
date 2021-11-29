@@ -1,10 +1,13 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { gql } from 'graphql-request';
 import { Image, StructuredText } from 'react-datocms';
 import classNames from 'classnames';
+import siteInfo from '@data/siteInfo';
 import { getPaths } from '@data/data';
 import { request, responsiveImageFragment, getRecipeList } from '@data/datocms';
 
+import Layout from '@components/layout/Layout';
 import Header from '@components/Header';
 import Footer from '@components/footer';
 import Wrapper from '@components/layout/Wrapper';
@@ -49,12 +52,30 @@ export const RecipeTags = ({ tags }) => {
 };
 
 export default function SingleRecipe(props) {
-  const { title, ingredients, instructions, context, categories, tags } = props;
+  const { title, slug, description, cover, ingredients, instructions, context, categories, tags } =
+    props;
   const router = useRouter();
   const id = router.query;
+  console.log(cover.responsiveImage.src);
 
   return (
-    <>
+    <Layout>
+      <Head>
+        <meta property="og:title" content={title} key="og:title" />
+        <meta property="og:url" content={`${siteInfo.url}/recipe/${slug}`} key="og:url" />
+        <meta property="og:description" content={description} key="og:description" />
+        <meta property="og:type" content="article" key="og:type" />
+        <meta
+          property="og:image"
+          content={cover?.responsiveImage.src || siteInfo.opengraphImage}
+          key="og:image"
+        />
+        <meta
+          property="twitter:image"
+          content={cover?.responsiveImage.src || siteInfo.opengraphImage}
+          key="twitter:image"
+        />
+      </Head>
       <style jsx>{`
         .recipe :global(.ingredient-name) {
           font-weight: bold;
@@ -65,7 +86,7 @@ export default function SingleRecipe(props) {
       <div className={styles.recipe}>
         <Attribution {...props} className={styles.attribution}></Attribution>
         {/* eslint-disable-next-line jsx-a11y/alt-text */}
-        <Image data={props.cover.responsiveImage} className={styles.featuredImage} />
+        <Image data={cover.responsiveImage} className={styles.featuredImage} />
 
         <Wrapper width="standard" padding="true" gutter="true">
           <EstimatedTime {...props} />
@@ -107,7 +128,7 @@ export default function SingleRecipe(props) {
       </div>
 
       <Footer></Footer>
-    </>
+    </Layout>
   );
 }
 

@@ -6,13 +6,14 @@ import Link from 'next/link';
 const Footer = (props) => {
   return (
     <footer className={styles.footer}>
-      <Link href="//github.com/MrSpecific" target="_blank" rel="noopener noreferrer">
-        <a className={styles.attribution}>
-          {/* Powered by{' '}
-        <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} /><br /> */}
-          Created by Will Christenson
-        </a>
-      </Link>
+      <a
+        href="//github.com/MrSpecific"
+        className={styles.attribution}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Created by Will Christenson
+      </a>
     </footer>
   );
 };
