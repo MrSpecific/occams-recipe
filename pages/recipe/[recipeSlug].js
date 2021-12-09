@@ -17,6 +17,8 @@ import IngredientsList from '@components/IngredientsList';
 
 import styles from '@styles/recipe.module.css';
 
+const { log } = console;
+
 export const RecipeCategories = ({ categories }) => {
   return (
     <div>
@@ -66,6 +68,7 @@ export default function SingleRecipe(props) {
   } = props;
   // const router = useRouter();
   // const id = router.query;
+  log(context);
 
   return (
     <Layout>

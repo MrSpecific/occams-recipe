@@ -54,7 +54,8 @@
 
 .featuredImage {
   width: 100%;
-  min-height: 100vh;
+  aspect-ratio: 3 / 2;
+  /* min-height: 100vh; */
 
   & img {
     object-fit: cover;
