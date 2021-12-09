@@ -23,7 +23,7 @@
   --body-bg: var(--beige, antiquewhite);
   --body-color: var(--maroon);
 
-  --link-color: var(--maroon);
-  --link-color-hover: var(--dark-maroon);
-  --link-color-active: var(--light-maroon);
+  --link-color: var(--black);
+  --link-color-hover: var(--warning-yellow-dark);
+  --link-color-active: var(--warning-yellow);
 }

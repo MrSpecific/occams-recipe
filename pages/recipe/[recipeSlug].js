@@ -68,7 +68,7 @@ export default function SingleRecipe(props) {
   } = props;
   // const router = useRouter();
   // const id = router.query;
-  log(context);
+  // log(context);
 
   return (
     <Layout>

@@ -22,6 +22,14 @@ body {
 a {
   color: inherit;
   transition: color 75ms ease-out;
+
+  &:hover {
+    color: var(--link-color-hover);
+  }
+
+  &:active {
+    color: var(--link-color-active);
+  }
 }
 
 * {
