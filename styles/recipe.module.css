@@ -19,6 +19,10 @@
     & .time-label {
       display: block;
     }
+
+    & .time-text {
+      font-weight: 700;
+    }
   }
 
   & .ingredients,

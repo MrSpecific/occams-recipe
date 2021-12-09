@@ -7,7 +7,7 @@ const DisplayTime = ({ label, time }) => {
 
   return (
     <span className="time-label">
-      {label}: {humanizeDuration(minutesToMs(time))}
+      {label}: <span className="time-text">{humanizeDuration(minutesToMs(time))}</span>
     </span>
   );
 };
@@ -15,10 +15,10 @@ const DisplayTime = ({ label, time }) => {
 const EstimatedTime = (recipe) => {
   return (
     <div className="estimated-time">
-      <DisplayTime label="Prep time" time={recipe.prepTime}></DisplayTime>
-      <DisplayTime label="Cook time" time={recipe.cookingTime}></DisplayTime>
+      <DisplayTime label="Prep time" time={recipe.prepTime} />
+      <DisplayTime label="Cook time" time={recipe.cookingTime} />
       {recipe.prepTime && recipe.cookingTime && (
-        <DisplayTime label="Total time" time={recipe.prepTime + recipe.cookingTime}></DisplayTime>
+        <DisplayTime label="Total time" time={recipe.prepTime + recipe.cookingTime} />
       )}
     </div>
   );
