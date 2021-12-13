@@ -1,8 +1,7 @@
 const path = require('path');
-const { extendDefaultPlugins } = require('svgo');
 
 module.exports = {
-  webpack(config, options) {
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: [
@@ -10,12 +9,17 @@ module.exports = {
           loader: '@svgr/webpack',
           options: {
             svgoConfig: {
-              plugins: extendDefaultPlugins([
+              plugins: [
                 {
-                  name: 'removeAttrs',
-                  active: false,
+                  name: 'preset-default',
+                  params: {
+                    overrides: {
+                      // disable plugins
+                      removeAttrs: false,
+                    },
+                  },
                 },
-              ]),
+              ],
             },
             svgProps: { className: 'svg-graphic' },
             dimensions: false,
@@ -24,6 +28,7 @@ module.exports = {
       ],
     });
 
+    // eslint-disable-next-line no-param-reassign
     config.resolve.alias['@public'] = path.resolve(__dirname, './public/');
     // console.log(config);
 
