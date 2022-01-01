@@ -1,13 +1,3 @@
-import { fetchEntries } from './contentful';
-
-export const recipes = async () => {
-  const allRecipes = await fetchEntries({
-    content_type: 'recipe',
-  });
-
-  return allRecipes;
-};
-
 export const getIds = (entries) => {
   const ids = entries.map((entry) => entry.fields.slug);
 
@@ -32,6 +22,7 @@ export const getEntry = (options) => {
   try {
     entry = options.entries.find((p) => p.fields.slug === options.slug);
   } catch (error) {
+    // eslint-disable-next-line prefer-destructuring
     entry = options.entries[1];
   }
 
