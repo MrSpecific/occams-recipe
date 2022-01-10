@@ -2,5 +2,9 @@
   --edge-space: 10px;
   --spacer: 20px;
   --content-spacer: 1em;
-  --section-padding-y: 60px;
+  --section-padding-y: 40px;
+
+  @media (--medium) {
+    --section-padding-y: 60px;
+  }
 }
