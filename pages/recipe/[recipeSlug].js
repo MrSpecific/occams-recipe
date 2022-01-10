@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 import { gql } from 'graphql-request';
 import { Image, StructuredText } from 'react-datocms';
 import classNames from 'classnames';
@@ -14,9 +14,11 @@ import Wrapper from '@components/layout/Wrapper';
 import Attribution from '@components/Attribution';
 import EstimatedTime from '@components/EstimatedTime';
 import IngredientsList from '@components/IngredientsList';
+import DetailList from '@components/DetailList';
 
 import styles from '@styles/recipe.module.css';
 
+// eslint-disable-next-line no-unused-vars
 const { log } = console;
 
 export const RecipeCategories = ({ categories }) => {
@@ -36,23 +38,6 @@ export const RecipeCategories = ({ categories }) => {
   );
 };
 
-export const RecipeTags = ({ tags }) => {
-  return (
-    <div>
-      <h2 className="h4 decorated">Tags</h2>
-      <ul className={styles.tagsList}>
-        {tags.map((tag) => {
-          return (
-            <li key={tag.title} className={styles.tagItem}>
-              {tag.title}
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-};
-
 export default function SingleRecipe(props) {
   const {
     title,
@@ -61,6 +46,7 @@ export default function SingleRecipe(props) {
     date,
     cover,
     ingredients,
+    equipment,
     instructions,
     context,
     categories,
@@ -103,6 +89,7 @@ export default function SingleRecipe(props) {
 
         <Wrapper width="standard" padding="true" gutter="true">
           <EstimatedTime {...props} />
+
           <div className={styles.vitals}>
             {ingredients && (
               <section className="ingredients">
@@ -124,8 +111,14 @@ export default function SingleRecipe(props) {
           </div>
 
           <div className={styles.recipeMeta}>
-            {categories && categories.length > 0 && <RecipeCategories categories={categories} />}
-            {tags && tags.length > 0 && <RecipeTags tags={tags} />}
+            <DetailList title="Equipment" items={equipment} />
+            <DetailList title="Categories" items={categories} />
+            <DetailList
+              title="Tags"
+              items={tags}
+              className={styles.tagsList}
+              itemClass={styles.tagItem}
+            />
           </div>
 
           {context && (
@@ -177,6 +170,11 @@ const SINGLE_RECIPE_QUERY = gql`
         id
         ingredient
         amount
+      }
+      equipment {
+        id
+        title
+        link
       }
       instructions {
         value

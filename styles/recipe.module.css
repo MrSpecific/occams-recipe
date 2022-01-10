@@ -70,9 +70,10 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacer);
+  padding-bottom: var(--section-padding-y);
 
   @media (--medium) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

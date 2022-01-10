@@ -28,7 +28,6 @@
     }
 
     & .attribution {
-      color: var(--white);
       opacity: 1;
     }
   }
@@ -41,13 +40,6 @@
 
 .attribution {
   font-size: 14px;
-}
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
 }
 
 .title {
