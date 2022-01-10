@@ -88,7 +88,7 @@ export default function SingleRecipe(props) {
         <Image data={cover.responsiveImage} className={styles.featuredImage} />
 
         <Wrapper width="standard" padding="true" gutter="true">
-          <EstimatedTime {...props} />
+          <EstimatedTime recipe={props} className={styles.estimatedTime} />
 
           <div className={styles.vitals}>
             {ingredients && (

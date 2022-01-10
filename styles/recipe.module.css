@@ -11,20 +11,6 @@
     }
   }
 
-  & .estimated-time {
-    margin-bottom: var(--edge-space);
-    color: var(--grey);
-    font-size: 14px;
-
-    & .time-label {
-      display: block;
-    }
-
-    & .time-text {
-      font-weight: 700;
-    }
-  }
-
   & .ingredients,
   & .instructions {
     font-size: 18px;
@@ -32,6 +18,20 @@
 
   & .instructions {
     letter-spacing: -0.5px;
+  }
+}
+
+.estimatedTime {
+  margin-bottom: var(--section-padding-y);
+  color: var(--grey);
+  font-size: 14px;
+
+  & .time-label {
+    display: block;
+  }
+
+  & .time-text {
+    font-weight: 700;
   }
 }
 
