@@ -38,8 +38,7 @@
   list-style: none;
   display: grid;
   grid-template-columns: repeat(1fr);
-  grid-column-gap: var(--edge-space);
-  grid-row-gap: var(--edge-space);
+  grid-gap: var(--spacer);
   margin: var(--edge-space);
   padding: 0;
 

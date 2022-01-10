@@ -1,10 +1,12 @@
 :root {
-  --edge-space: 10px;
+  --edge-space: 12px;
+  --spacer-s: 10px;
   --spacer: 20px;
   --content-spacer: 1em;
   --section-padding-y: 40px;
 
   @media (--medium) {
+    --edge-space: 20px;
     --section-padding-y: 60px;
   }
 }

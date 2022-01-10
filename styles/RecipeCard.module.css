@@ -3,7 +3,7 @@
   --link-color-active: var(--white);
 
   height: 100%;
-  padding: var(--edge-space);
+  padding: var(--spacer-s);
   text-align: left;
   color: inherit;
   text-decoration: none;
