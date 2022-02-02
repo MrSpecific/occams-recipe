@@ -58,6 +58,7 @@
 
 .featuredImage {
   width: 100%;
+  max-width: 100%;
   aspect-ratio: 3 / 2;
   /* min-height: 100vh; */
 
