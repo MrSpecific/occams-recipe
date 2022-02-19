@@ -9,7 +9,8 @@
   text-decoration: none;
   border: 2px solid var(--warning-yellow);
   border-radius: 6px;
-  transition: color 0.15s ease, border-color 0.15s ease, background-color 350ms ease;
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 350ms ease,
+    transform 0.15s ease;
 
   & a {
     text-decoration: none;
@@ -20,6 +21,7 @@
   }
 
   &:hover {
+    transform: translateY(-4px);
     background-color: var(--warning-yellow);
 
     & img,
