@@ -57,6 +57,7 @@
 }
 
 .featuredImage {
+  max-width: unset !important;
   width: 100%;
   max-width: 100%;
   aspect-ratio: 3 / 2;

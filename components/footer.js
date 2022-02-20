@@ -1,9 +1,9 @@
 import styles from '@styles/Footer.module.css';
 // import siteInfo from "@data/siteInfo";
 
-import Link from 'next/link';
+// import Link from 'next/link';
 
-const Footer = (props) => {
+const Footer = () => {
   return (
     <footer className={styles.footer}>
       <a
