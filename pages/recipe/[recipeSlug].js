@@ -14,6 +14,7 @@ import Wrapper from '@components/layout/Wrapper';
 import Attribution from '@components/Attribution';
 import EstimatedTime from '@components/EstimatedTime';
 import IngredientsList from '@components/IngredientsList';
+import { MeasuresList } from '@components/Measure';
 import DetailList from '@components/DetailList';
 
 import styles from '@styles/recipe.module.css';
@@ -46,6 +47,7 @@ export default function SingleRecipe(props) {
     date,
     cover,
     ingredients,
+    measures,
     equipment,
     instructions,
     context,
@@ -91,11 +93,13 @@ export default function SingleRecipe(props) {
           <EstimatedTime recipe={props} className={styles.estimatedTime} />
 
           <div className={styles.vitals}>
-            {ingredients && (
+            {(ingredients || measures) && (
               <section className="ingredients">
                 <div className={styles.ingredientsInner}>
                   <h2 className="decorated">Ingredients:</h2>
                   <IngredientsList ingredients={ingredients} />
+
+                  <MeasuresList measures={measures} />
                 </div>
               </section>
             )}
@@ -170,6 +174,17 @@ const SINGLE_RECIPE_QUERY = gql`
         id
         ingredient
         amount
+      }
+      measures {
+        id
+        unit
+        amount
+        note
+        ingredient {
+          id
+          title
+          slug
+        }
       }
       equipment {
         id

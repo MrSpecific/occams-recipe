@@ -5,6 +5,8 @@ import styles from '@styles/components/IngredientsList.module.css';
 const IngredientsList = (props) => {
   const { ingredients } = props;
 
+  if (!ingredients || !ingredients.length) return null;
+
   return (
     <ol className={`ingredients-list ${styles.ingredientsList}`}>
       <style jsx>{`
