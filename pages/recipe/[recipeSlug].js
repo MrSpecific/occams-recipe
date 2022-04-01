@@ -54,9 +54,6 @@ export default function SingleRecipe(props) {
     categories,
     tags,
   } = props;
-  // const router = useRouter();
-  // const id = router.query;
-  // log(context);
 
   return (
     <Layout>
