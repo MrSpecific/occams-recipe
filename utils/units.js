@@ -1,6 +1,8 @@
 const abbreviations = {
+  each: 'ea',
   kilogram: 'kg',
-  ounce: 'fl-oz',
+  ounce: 'oz',
+  ounces: 'oz',
   'fluid-ounce': 'fl-oz',
   pound: 'lb',
   pounds: 'lb',

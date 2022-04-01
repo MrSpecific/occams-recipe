@@ -24,10 +24,14 @@ export default function Measure({ measure, system = 'metric' }) {
   const { note, ingredient } = measure;
   const { amount, unit } = measure;
   const abbrUnit = units.abbr(unit);
-  const newUnit = 'ml';
+  const newUnit = abbrUnit === 'ea' ? abbrUnit : 'oz';
 
-  log(abbrUnit);
-  const convertedAmount = convert(amount).from(abbrUnit).to(newUnit);
+  const convertedAmount =
+    abbrUnit === newUnit || newUnit === 'ea'
+      ? amount
+      : convert(amount)
+          .from(abbrUnit)
+          .to(newUnit === 'oz' ? 'fl-oz' : newUnit);
 
   return (
     <div className={styles.measure}>
@@ -36,7 +40,7 @@ export default function Measure({ measure, system = 'metric' }) {
           {Math.round(convertedAmount)} {newUnit}
         </span>
         &nbsp;
-        <span>{ingredient.title}</span>
+        <span className={styles.ingredient}>{ingredient.title}</span>
       </span>
       {note && <span className={styles.note}>{note}</span>}
     </div>
