@@ -8,7 +8,22 @@ import Header from '@components/Header';
 import Footer from '@components/footer';
 import RecipeCard from '@components/recipeCard';
 
+const CategoriesFilter = ({ categories }) => {
+  if (!categories) return null;
+  return (
+    <ul>
+      {categories.map((category) => (
+        <li key={category.id}>
+          <button>{category.title}</button>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
 export default function Home({ data }) {
+  const { allRecipes, allCategories } = data;
+
   return (
     <Layout>
       <div className={styles.container}>
@@ -21,8 +36,9 @@ export default function Home({ data }) {
         `}</style>
 
         <main className={styles.main}>
+          <CategoriesFilter categories={allCategories} />
           <ol className={styles.cardList}>
-            {data.allRecipes.map((recipe) => {
+            {allRecipes.map((recipe) => {
               return (
                 <li key={recipe.id}>
                   <RecipeCard {...recipe}></RecipeCard>
@@ -58,6 +74,11 @@ const HOMEPAGE_QUERY = gql`
         title
         slug
       }
+    }
+    allCategories {
+      id
+      title
+      slug
     }
   }
 
