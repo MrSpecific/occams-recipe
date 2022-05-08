@@ -94,6 +94,7 @@ export default function SingleRecipe(props) {
               <section className="ingredients">
                 <div className={styles.ingredientsInner}>
                   <h2 className="decorated">Ingredients:</h2>
+
                   <IngredientsList ingredients={ingredients} />
 
                   <MeasuresList measures={measures} />

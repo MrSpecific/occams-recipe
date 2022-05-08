@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { request, responsiveImageFragment } from '@data/datocms';
 import { gql } from 'graphql-request';
 // import { Image, StructuredText } from 'react-datocms'
@@ -8,21 +9,52 @@ import Header from '@components/Header';
 import Footer from '@components/footer';
 import RecipeCard from '@components/recipeCard';
 
-const CategoriesFilter = ({ categories }) => {
+const CategoriesFilter = ({ categories, filter, setFilter }) => {
   if (!categories) return null;
+
+  const changeCategory = (event) => {
+    setFilter(event.target.value);
+  };
+
   return (
-    <ul>
+    <ul className={styles.categoriesFilter}>
+      <li className={styles.filterItem}>
+        <input
+          type="radio"
+          id="all-categories"
+          name="categories"
+          value={null}
+          checked={!filter}
+          onChange={changeCategory}
+        />
+        <label for="all-categories">All</label>
+      </li>
       {categories.map((category) => (
-        <li key={category.id}>
-          <button>{category.title}</button>
+        <li key={category.slug} className={styles.filterItem}>
+          <input
+            type="radio"
+            id={category.slug}
+            name="categories"
+            value={category.slug}
+            checked={filter === category.slug}
+            onChange={changeCategory}
+          />
+          <label for={category.slug}>{category.title}</label>
         </li>
       ))}
     </ul>
   );
 };
 
+const matchesFilter = ({ filter, recipe }) => {
+  if (!filter) return true;
+
+  return !!recipe.categories.find((category) => category.slug === filter);
+};
+
 export default function Home({ data }) {
   const { allRecipes, allCategories } = data;
+  const [filter, setFilter] = useState(null);
 
   return (
     <Layout>
@@ -36,9 +68,10 @@ export default function Home({ data }) {
         `}</style>
 
         <main className={styles.main}>
-          <CategoriesFilter categories={allCategories} />
+          <CategoriesFilter categories={allCategories} filter={filter} setFilter={setFilter} />
           <ol className={styles.cardList}>
             {allRecipes.map((recipe) => {
+              if (!matchesFilter({ filter, recipe })) return null;
               return (
                 <li key={recipe.id}>
                   <RecipeCard {...recipe}></RecipeCard>

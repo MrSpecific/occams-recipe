@@ -11,6 +11,12 @@
   align-items: center;
 }
 
+.categoriesFilter {
+  display: flex;
+  gap: var(--spacer-s);
+  list-style: none;
+}
+
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
