@@ -4,6 +4,7 @@ import { gql } from 'graphql-request';
 // import { Image, StructuredText } from 'react-datocms'
 import styles from '@styles/Home.module.css';
 
+import { useAppContext } from '@data/context';
 import Layout from '@components/layout/Layout';
 import Header from '@components/Header';
 import Footer from '@components/footer';
@@ -55,6 +56,7 @@ const matchesFilter = ({ filter, recipe }) => {
 export default function Home({ data }) {
   const { allRecipes, allCategories } = data;
   const [filter, setFilter] = useState(null);
+  const { categoryFilter, setCategoryFilter } = useAppContext();
 
   return (
     <Layout>
@@ -68,10 +70,14 @@ export default function Home({ data }) {
         `}</style>
 
         <main className={styles.main}>
-          <CategoriesFilter categories={allCategories} filter={filter} setFilter={setFilter} />
+          <CategoriesFilter
+            categories={allCategories}
+            filter={categoryFilter}
+            setFilter={setCategoryFilter}
+          />
           <ol className={styles.cardList}>
             {allRecipes.map((recipe) => {
-              if (!matchesFilter({ filter, recipe })) return null;
+              if (!matchesFilter({ filter: categoryFilter, recipe })) return null;
               return (
                 <li key={recipe.id}>
                   <RecipeCard {...recipe}></RecipeCard>
