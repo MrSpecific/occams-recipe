@@ -5,14 +5,14 @@ import styles from '@styles/components/Measure.module.css';
 
 const { log } = console;
 
-const RadioControl = ({ name, label, value, onChange }) => {
+const RadioControl = ({ name, label, value, onChange, currentSystem }) => {
   return (
     <label>
       <input
         type="radio"
         name={name}
         value={value}
-        checked={system === value}
+        checked={currentSystem === value}
         onChange={onChange}
       />
       {label || value || name}
@@ -28,8 +28,20 @@ const SystemControl = ({ system, setSystem }) => {
   return (
     <div className={styles.systemControl}>
       <label htmlFor="system">System:</label>
-      <RadioControl name="system" label="Imperial" value="imperial" onChange={handleSystemChange} />
-      <RadioControl name="system" label="Metric" value="metric" onChange={handleSystemChange} />
+      <RadioControl
+        name="system"
+        label="Imperial"
+        value="imperial"
+        onChange={handleSystemChange}
+        currentSystem={system}
+      />
+      <RadioControl
+        name="system"
+        label="Metric"
+        value="metric"
+        onChange={handleSystemChange}
+        currentSystem={system}
+      />
       <select id="system" value={system} onChange={handleSystemChange}>
         <option value="metric">Metric</option>
         <option value="imperial">Imperial</option>
@@ -38,8 +50,8 @@ const SystemControl = ({ system, setSystem }) => {
   );
 };
 
-export const MeasuresList = ({ measures, className }) => {
-  const [system, setSystem] = useState('imperial');
+export const MeasuresList = ({ measures, className, system, setSystem }) => {
+  // const [system, setSystem] = useState('imperial');
 
   if (!measures.length) return null;
 

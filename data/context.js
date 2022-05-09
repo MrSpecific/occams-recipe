@@ -7,10 +7,13 @@ export const AppContext = createContext();
 // Top-level Provider component
 export function AppContextProvider({ children }) {
   const [categoryFilter, setCategoryFilter] = useState();
+  const [system, setSystem] = useState('imperial');
 
   const context = {
     categoryFilter,
     setCategoryFilter,
+    system,
+    setSystem,
   };
 
   return <AppContext.Provider value={context}>{children}</AppContext.Provider>;

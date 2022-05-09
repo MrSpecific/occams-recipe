@@ -3,8 +3,10 @@ import Head from 'next/head';
 import { gql } from 'graphql-request';
 import { Image, StructuredText } from 'react-datocms';
 import classNames from 'classnames';
+
 import siteInfo from '@data/siteInfo';
 import { getPaths } from '@data/data';
+import { useAppContext } from '@data/context';
 import { request, responsiveImageFragment, getRecipeList } from '@data/datocms';
 
 import Layout from '@components/layout/Layout';
@@ -55,6 +57,8 @@ export default function SingleRecipe(props) {
     tags,
   } = props;
 
+  const { system, setSystem } = useAppContext();
+
   return (
     <Layout>
       <Head>
@@ -97,7 +101,7 @@ export default function SingleRecipe(props) {
 
                   <IngredientsList ingredients={ingredients} />
 
-                  <MeasuresList measures={measures} />
+                  <MeasuresList measures={measures} system={system} setSystem={setSystem} />
                 </div>
               </section>
             )}
