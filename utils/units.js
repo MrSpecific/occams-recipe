@@ -1,3 +1,12 @@
+const systems = {
+  metric: {
+    oz: 'ml',
+  },
+  imperial: {
+    ml: 'oz',
+  },
+};
+
 const abbreviations = {
   each: 'ea',
   kilogram: 'kg',
@@ -35,16 +44,27 @@ const abbreviations = {
   metres: 'm',
 };
 
+const conversionExcluded = ['each', 'dash'];
+
 const abbr = (unit) => {
   return abbreviations[unit] || unit;
 };
 
+const switchSystem = ({ unit, system }) => {
+  return systems[system][unit] || unit;
+};
+
+const isExcluded = (unit) => {
+  return conversionExcluded.includes(unit);
+};
+
 const units = {
-  system: {
-    metric: {},
-    imperial: {},
-  },
+  systems,
+  abbreviations,
   abbr,
+  switchSystem,
+  conversionExcluded,
+  isExcluded,
 };
 
 export default units;
