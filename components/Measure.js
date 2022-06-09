@@ -1,24 +1,24 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import convert from 'convert-units';
 import units from '@utils/units';
 import styles from '@styles/components/Measure.module.css';
 
 const { log } = console;
 
-const RadioControl = ({ name, label, value, onChange, currentSystem }) => {
-  return (
-    <label>
-      <input
-        type="radio"
-        name={name}
-        value={value}
-        checked={currentSystem === value}
-        onChange={onChange}
-      />
-      {label || value || name}
-    </label>
-  );
-};
+// const RadioControl = ({ name, label, value, onChange, currentSystem }) => {
+//   return (
+//     <label>
+//       <input
+//         type="radio"
+//         name={name}
+//         value={value}
+//         checked={currentSystem === value}
+//         onChange={onChange}
+//       />
+//       {label || value || name}
+//     </label>
+//   );
+// };
 
 const SystemControl = ({ system, setSystem }) => {
   const handleSystemChange = (e) => {
@@ -90,7 +90,7 @@ export default function Measure({ measure, system = 'metric' }) {
   }
 
   if (abbrUnit !== unitInfo.abbr) {
-    log(`Converting ${amount} ${abbrUnit} to ${unitInfo.abbr}`);
+    // log(`Converting ${amount} ${abbrUnit} to ${unitInfo.abbr}`);
     displayAmount = convert(amount)
       .from(abbrUnit === 'oz' ? 'fl-oz' : abbrUnit)
       .to(unitInfo.abbr === 'oz' ? 'fl-oz' : unitInfo.abbr);

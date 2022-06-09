@@ -13,7 +13,7 @@ import RecipeCard from '@components/recipeCard';
 
 export default function Home({ data }) {
   const { allRecipes, allCategories } = data;
-  const [filter, setFilter] = useState(null);
+  // const [filter, setFilter] = useState(null);
   const { categoryFilter, setCategoryFilter } = useAppContext();
 
   return (

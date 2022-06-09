@@ -25,7 +25,7 @@ const CategoriesFilter = ({ categories, filter, setFilter }) => {
           checked={!filter}
           onChange={changeCategory}
         />
-        <label for="all-categories" className={styles.filterLabel}>
+        <label htmlFor="all-categories" className={styles.filterLabel}>
           All
         </label>
       </li>
@@ -40,7 +40,7 @@ const CategoriesFilter = ({ categories, filter, setFilter }) => {
             checked={filter === category.slug}
             onChange={changeCategory}
           />
-          <label for={category.slug} className={styles.filterLabel}>
+          <label htmlFor={category.slug} className={styles.filterLabel}>
             {category.title}
           </label>
         </li>

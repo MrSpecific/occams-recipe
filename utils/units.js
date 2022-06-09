@@ -47,7 +47,7 @@ const abbreviations = {
 const conversionExcluded = ['each', 'dash'];
 
 const abbr = (unit) => {
-  return abbreviations[unit] || unit;
+  return abbreviations[unit.toLowerCase()] || unit;
 };
 
 const switchSystem = ({ unit, system }) => {
