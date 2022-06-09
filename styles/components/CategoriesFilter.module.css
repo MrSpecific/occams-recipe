@@ -1,0 +1,5 @@
+.categoriesFilter {
+  display: flex;
+  gap: var(--spacer-s);
+  list-style: none;
+}

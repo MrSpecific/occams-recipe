@@ -75,15 +75,19 @@ export default function Measure({ measure, system = 'metric' }) {
   const { note, ingredient } = measure;
   const { amount, unit } = measure;
   const abbrUnit = units.abbr(unit);
-
-  let unitInfo = convert().describe(abbrUnit);
-
-  if (unitInfo.system !== system) {
-    const converted = units.switchSystem({ unit: abbrUnit, system });
-    unitInfo = convert().describe(converted);
-  }
-
   let displayAmount = amount;
+  let unitInfo;
+
+  if (units.isExcluded(abbrUnit)) {
+    unitInfo = { abbr: abbrUnit };
+  } else {
+    unitInfo = convert().describe(abbrUnit);
+
+    if (unitInfo.system !== system) {
+      const converted = units.switchSystem({ unit: abbrUnit, system });
+      unitInfo = convert().describe(converted);
+    }
+  }
 
   if (abbrUnit !== unitInfo.abbr) {
     log(`Converting ${amount} ${abbrUnit} to ${unitInfo.abbr}`);

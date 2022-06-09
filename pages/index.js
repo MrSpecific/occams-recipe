@@ -8,50 +8,8 @@ import { useAppContext } from '@data/context';
 import Layout from '@components/layout/Layout';
 import Header from '@components/Header';
 import Footer from '@components/footer';
+import CategoriesFilter, { matchesFilter } from '@components/CategoriesFilter';
 import RecipeCard from '@components/recipeCard';
-
-const CategoriesFilter = ({ categories, filter, setFilter }) => {
-  if (!categories) return null;
-
-  const changeCategory = (event) => {
-    setFilter(event.target.value);
-  };
-
-  return (
-    <ul className={styles.categoriesFilter}>
-      <li className={styles.filterItem}>
-        <input
-          type="radio"
-          id="all-categories"
-          name="categories"
-          value={null}
-          checked={!filter}
-          onChange={changeCategory}
-        />
-        <label for="all-categories">All</label>
-      </li>
-      {categories.map((category) => (
-        <li key={category.slug} className={styles.filterItem}>
-          <input
-            type="radio"
-            id={category.slug}
-            name="categories"
-            value={category.slug}
-            checked={filter === category.slug}
-            onChange={changeCategory}
-          />
-          <label for={category.slug}>{category.title}</label>
-        </li>
-      ))}
-    </ul>
-  );
-};
-
-const matchesFilter = ({ filter, recipe }) => {
-  if (!filter) return true;
-
-  return !!recipe.categories.find((category) => category.slug === filter);
-};
 
 export default function Home({ data }) {
   const { allRecipes, allCategories } = data;

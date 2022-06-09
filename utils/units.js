@@ -44,6 +44,8 @@ const abbreviations = {
   metres: 'm',
 };
 
+const conversionExcluded = ['each', 'dash'];
+
 const abbr = (unit) => {
   return abbreviations[unit] || unit;
 };
@@ -52,11 +54,17 @@ const switchSystem = ({ unit, system }) => {
   return systems[system][unit] || unit;
 };
 
+const isExcluded = (unit) => {
+  return conversionExcluded.includes(unit);
+};
+
 const units = {
   systems,
   abbreviations,
   abbr,
   switchSystem,
+  conversionExcluded,
+  isExcluded,
 };
 
 export default units;
