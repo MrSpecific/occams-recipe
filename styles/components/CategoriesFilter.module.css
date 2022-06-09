@@ -1,5 +1,25 @@
 .categoriesFilter {
   display: flex;
-  gap: var(--spacer-s);
+  gap: var(--spacer-xs);
   list-style: none;
+}
+
+.filterInput {
+  opacity: 0;
+  position: absolute;
+
+  &:checked + label {
+    background-color: var(--warning-yellow-dark);
+    color: var(--white);
+  }
+}
+
+.filterLabel {
+  padding: var(--spacer-xs);
+  transition: background-color 100ms ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--warning-yellow);
+  }
 }

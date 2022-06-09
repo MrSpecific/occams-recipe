@@ -21,10 +21,13 @@ const CategoriesFilter = ({ categories, filter, setFilter }) => {
           id="all-categories"
           name="categories"
           value=""
+          className={styles.filterInput}
           checked={!filter}
           onChange={changeCategory}
         />
-        <label for="all-categories">All</label>
+        <label for="all-categories" className={styles.filterLabel}>
+          All
+        </label>
       </li>
       {categories.map((category) => (
         <li key={category.slug} className={styles.filterItem}>
@@ -33,10 +36,13 @@ const CategoriesFilter = ({ categories, filter, setFilter }) => {
             id={category.slug}
             name="categories"
             value={category.slug}
+            className={styles.filterInput}
             checked={filter === category.slug}
             onChange={changeCategory}
           />
-          <label for={category.slug}>{category.title}</label>
+          <label for={category.slug} className={styles.filterLabel}>
+            {category.title}
+          </label>
         </li>
       ))}
     </ul>

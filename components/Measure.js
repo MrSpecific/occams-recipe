@@ -28,7 +28,7 @@ const SystemControl = ({ system, setSystem }) => {
   return (
     <div className={styles.systemControl}>
       <label htmlFor="system">System:</label>
-      <RadioControl
+      {/* <RadioControl
         name="system"
         label="Imperial"
         value="imperial"
@@ -41,7 +41,7 @@ const SystemControl = ({ system, setSystem }) => {
         value="metric"
         onChange={handleSystemChange}
         currentSystem={system}
-      />
+      /> */}
       <select id="system" value={system} onChange={handleSystemChange}>
         <option value="metric">Metric</option>
         <option value="imperial">Imperial</option>

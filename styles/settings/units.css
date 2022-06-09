@@ -1,5 +1,6 @@
 :root {
   --edge-space: 12px;
+  --spacer-xs: 4px;
   --spacer-s: 10px;
   --spacer: 20px;
   --content-spacer: 1em;
