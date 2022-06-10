@@ -9,7 +9,7 @@ import Header from '@components/Header';
 import Footer from '@components/footer';
 import RecipeFilter from '@components/RecipeFilter';
 import filter from '@utils/filter';
-import RecipeCard from '@components/recipeCard';
+import RecipeCard from '@components/RecipeCard1';
 
 export default function Home({ data }) {
   const { allRecipes, allCategories } = data;

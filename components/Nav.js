@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import Search from './Search';
 import classNames from 'classnames';
 import { Squash as Hamburger } from 'hamburger-react';
 
@@ -37,6 +38,9 @@ const Nav = () => {
               <Link href={`/`}>
                 <a>All Recipes</a>
               </Link>
+            </li>
+            <li className={styles.navItem}>
+              <Search />
             </li>
           </ol>
         </div>

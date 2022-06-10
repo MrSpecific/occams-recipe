@@ -8,12 +8,10 @@ const CategoriesFilter = ({ categories, filter, setFilter, styles }) => {
   return (
     <label className={styles.filterWrapper}>
       <span className={styles.filterLabel}>Category:</span>
-      <select className={styles.filterSelect} onChange={changeCategory}>
-        <option value="" selected={!filter || filter === ''}>
-          All Categories
-        </option>
+      <select className={styles.filterSelect} onChange={changeCategory} defaultValue={filter}>
+        <option value="">All Categories</option>
         {categories.map((category) => (
-          <option key={category.slug} value={category.slug} selected={filter === category.slug}>
+          <option key={category.slug} value={category.slug}>
             {category.title}
           </option>
         ))}
