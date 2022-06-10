@@ -1,0 +1,20 @@
+.recipeFilter {
+  display: flex;
+  gap: var(--spacer-s);
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.filterWrapper {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.filterLabel {
+  font-size: 0.75em;
+}
+
+.filterSelect {
+  padding: 4px;
+}

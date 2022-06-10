@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { request, responsiveImageFragment } from '@data/datocms';
 import { gql } from 'graphql-request';
 // import { Image, StructuredText } from 'react-datocms'
@@ -8,13 +7,14 @@ import { useAppContext } from '@data/context';
 import Layout from '@components/layout/Layout';
 import Header from '@components/Header';
 import Footer from '@components/footer';
-import CategoriesFilter, { matchesFilter } from '@components/CategoriesFilter';
+import RecipeFilter from '@components/RecipeFilter';
+import filter from '@utils/filter';
 import RecipeCard from '@components/recipeCard';
 
 export default function Home({ data }) {
   const { allRecipes, allCategories } = data;
   // const [filter, setFilter] = useState(null);
-  const { categoryFilter, setCategoryFilter } = useAppContext();
+  const { categoryFilter } = useAppContext();
 
   return (
     <Layout>
@@ -28,14 +28,12 @@ export default function Home({ data }) {
         `}</style>
 
         <main className={styles.main}>
-          <CategoriesFilter
-            categories={allCategories}
-            filter={categoryFilter}
-            setFilter={setCategoryFilter}
-          />
+          <div className="wrapper">
+            <RecipeFilter categories={allCategories} />
+          </div>
           <ol className={styles.cardList}>
             {allRecipes.map((recipe) => {
-              if (!matchesFilter({ filter: categoryFilter, recipe })) return null;
+              if (!filter.category({ category: categoryFilter, recipe })) return null;
               return (
                 <li key={recipe.id}>
                   <RecipeCard {...recipe}></RecipeCard>
@@ -72,7 +70,7 @@ const HOMEPAGE_QUERY = gql`
         slug
       }
     }
-    allCategories {
+    allCategories(orderBy: title_ASC) {
       id
       title
       slug

@@ -1,7 +1,6 @@
+@import "../settings/breakpoints";
+
 .categoriesFilter {
-  display: flex;
-  gap: var(--spacer-xs);
-  list-style: none;
 }
 
 .filterInput {
@@ -15,11 +14,7 @@
 }
 
 .filterLabel {
-  padding: var(--spacer-xs);
-  transition: background-color 100ms ease-in-out;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--warning-yellow);
-  }
+  display: flex;
+  gap: var(--spacer-xs);
+  flex-direction: column;
 }

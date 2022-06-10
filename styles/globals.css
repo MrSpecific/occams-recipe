@@ -121,6 +121,10 @@ h6,
   }
 }
 
+.wrapper {
+  padding-inline: var(--edge-space);
+}
+
 ::selection {
   background-color: var(--warning-yellow);
 }
