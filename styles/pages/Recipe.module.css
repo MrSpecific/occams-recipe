@@ -1,4 +1,4 @@
-@import "./settings/breakpoints";
+@import "../settings/breakpoints";
 
 .recipe {
 }
@@ -19,6 +19,10 @@
   & .instructions {
     letter-spacing: -0.5px;
   }
+}
+
+.measuresList {
+  padding-top: var(--spacer-s);
 }
 
 .estimatedTime {

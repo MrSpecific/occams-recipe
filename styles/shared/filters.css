@@ -1,0 +1,13 @@
+.filterWrapper {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+}
+
+.filterLabel {
+  font-size: 0.75em;
+}
+
+.filterSelect {
+  padding: 4px;
+}

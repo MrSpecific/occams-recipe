@@ -19,7 +19,7 @@ import IngredientsList from '@components/IngredientsList';
 import { MeasuresList } from '@components/Measure';
 import DetailList from '@components/DetailList';
 
-import styles from '@styles/recipe.module.css';
+import styles from '@styles/pages/Recipe.module.css';
 
 // eslint-disable-next-line no-unused-vars
 const { log } = console;
@@ -101,7 +101,12 @@ export default function SingleRecipe(props) {
 
                   <IngredientsList ingredients={ingredients} />
 
-                  <MeasuresList measures={measures} system={system} setSystem={setSystem} />
+                  <MeasuresList
+                    measures={measures}
+                    system={system}
+                    setSystem={setSystem}
+                    className={styles.measuresList}
+                  />
                 </div>
               </section>
             )}

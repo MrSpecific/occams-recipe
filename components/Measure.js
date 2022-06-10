@@ -26,27 +26,13 @@ const SystemControl = ({ system, setSystem }) => {
   };
 
   return (
-    <div className={styles.systemControl}>
-      <label htmlFor="system">System:</label>
-      {/* <RadioControl
-        name="system"
-        label="Imperial"
-        value="imperial"
-        onChange={handleSystemChange}
-        currentSystem={system}
-      />
-      <RadioControl
-        name="system"
-        label="Metric"
-        value="metric"
-        onChange={handleSystemChange}
-        currentSystem={system}
-      /> */}
-      <select id="system" value={system} onChange={handleSystemChange}>
+    <label className={styles.filterWrapper}>
+      <span className={styles.filterLabel}>System:</span>
+      <select value={system} className={styles.filterSelect} onChange={handleSystemChange}>
         <option value="metric">Metric</option>
         <option value="imperial">Imperial</option>
       </select>
-    </div>
+    </label>
   );
 };
 
