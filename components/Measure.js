@@ -3,7 +3,7 @@ import convert from 'convert-units';
 import units from '@utils/units';
 import styles from '@styles/components/Measure.module.css';
 
-const { log } = console;
+// const { log } = console;
 
 // const RadioControl = ({ name, label, value, onChange, currentSystem }) => {
 //   return (

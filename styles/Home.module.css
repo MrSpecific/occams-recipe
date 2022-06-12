@@ -46,7 +46,7 @@
     grid-template-columns: repeat(3, 1fr);
 
     &:hover li:not(:hover) picture {
-      opacity: 0.87;
+      /* opacity: 0.87; */
     }
   }
 }

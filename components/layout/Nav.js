@@ -1,9 +1,9 @@
-import Link from 'next/link';
 import { useState } from 'react';
-import Search from './Search';
+import Link from 'next/link';
 import classNames from 'classnames';
 import { Squash as Hamburger } from 'hamburger-react';
 
+import Search from '@components/Search';
 import styles from '@styles/components/Nav.module.css';
 
 const Nav = () => {
@@ -39,9 +39,9 @@ const Nav = () => {
                 <a>All Recipes</a>
               </Link>
             </li>
-            <li className={styles.navItem}>
+            {/* <li className={styles.navItem}>
               <Search />
-            </li>
+            </li> */}
           </ol>
         </div>
       </nav>

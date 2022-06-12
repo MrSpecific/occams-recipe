@@ -5,11 +5,11 @@ import styles from '@styles/Home.module.css';
 
 import { useAppContext } from '@data/context';
 import Layout from '@components/layout/Layout';
-import Header from '@components/Header';
-import Footer from '@components/footer';
+import Header from '@components/layout/Header';
+import Footer from '@components/layout/Footer';
 import RecipeFilter from '@components/RecipeFilter';
-import filter from '@utils/filter';
 import RecipeCard from '@components/RecipeCard';
+import filter from '@utils/filter';
 
 export default function Home({ data }) {
   const { allRecipes, allCategories } = data;

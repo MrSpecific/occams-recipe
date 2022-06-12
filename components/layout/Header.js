@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import classNames from 'classnames';
 
-import Nav from '@components/Nav';
+import Nav from '@components/layout/Nav';
 import styles from '@styles/Header.module.css';
 import siteInfo from '@data/siteInfo';
-import Razor from '../public/svg/razor.svg';
+import Razor from '../../public/svg/razor.svg';
 
 // import Razor from "@public/svg/razor.svg";
 

@@ -10,8 +10,8 @@ import { useAppContext } from '@data/context';
 import { request, responsiveImageFragment, getRecipeList } from '@data/datocms';
 
 import Layout from '@components/layout/Layout';
-import Header from '@components/Header';
-import Footer from '@components/footer';
+import Header from '@components/layout/Header';
+import Footer from '@components/layout/Footer';
 import Wrapper from '@components/layout/Wrapper';
 import Attribution from '@components/Attribution';
 import EstimatedTime from '@components/EstimatedTime';

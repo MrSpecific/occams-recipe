@@ -5,6 +5,7 @@
 // import styles from '@styles/components/RecipeFilter.module.css';
 
 // const client = new DatoCmsSearch(process.env.NEXT_PUBLIC_DATOCMS_SITE_SEARCH_TOKEN);
+const { log, info, error } = console;
 
 export default function Search() {
   // const { categoryFilter, setCategoryFilter } = useAppContext();
@@ -17,7 +18,8 @@ export default function Search() {
   // }
 
   const handleInput = async (e) => {
-    console.log(process.env.NEXT_PUBLIC_DATOCMS_SITE_SEARCH_TOKEN);
+    log('Search...');
+    // log(process.env.NEXT_PUBLIC_DATOCMS_SITE_SEARCH_TOKEN);
 
     // if (!searchClient) return false;
     const DatoCmsSearch = (await import('datocms-search/dist/datocms-search.base')).default;
@@ -27,18 +29,19 @@ export default function Search() {
     searchClient
       .search('rum')
       .then(function (response) {
-        console.info(response.results);
-        console.info(response.total);
+        info(response.results);
+        info(response.total);
         // 42
       })
       .catch(function (error) {
-        console.error(error);
+        error(error);
       });
   };
 
   return (
-    <section>
-      <input type="text" onChange={handleInput}></input>
-    </section>
+    <form>
+      <input type="text" onChange={handleInput} placeholder="Search for..."></input>
+      <button type="submit">Search</button>
+    </form>
   );
 }
