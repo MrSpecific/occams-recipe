@@ -80,11 +80,11 @@ const HOMEPAGE_QUERY = gql`
   ${responsiveImageFragment}
 `;
 
-export async function getStaticProps() {
+export async function getStaticProps(context) {
   const data = await request({
     query: HOMEPAGE_QUERY,
     variables: { limit: 100 },
-    preview: false,
+    preview: context.preview,
   });
 
   return {

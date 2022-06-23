@@ -19,7 +19,7 @@ const RecipeCard = (recipe) => {
         <a>
           <Attribution {...recipe} className={styles.attribution}></Attribution>
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
-          <Image data={recipe.cover.responsiveImage} className={styles.image} />
+          {recipe.cover && <Image data={recipe.cover.responsiveImage} className={styles.image} />}
           <ReactMarkdown>{recipe.description}</ReactMarkdown>
         </a>
       </Link>
