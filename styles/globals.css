@@ -128,3 +128,15 @@ h6,
 ::selection {
   background-color: var(--warning-yellow);
 }
+
+.visually-hidden {
+  /* stylelint-disable-next-line */
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+}

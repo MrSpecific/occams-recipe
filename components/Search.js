@@ -5,7 +5,7 @@
 // import styles from '@styles/components/RecipeFilter.module.css';
 
 // const client = new DatoCmsSearch(process.env.NEXT_PUBLIC_DATOCMS_SITE_SEARCH_TOKEN);
-const { log, info, error } = console;
+const { log, info } = console;
 
 export default function Search() {
   // const { categoryFilter, setCategoryFilter } = useAppContext();
@@ -34,7 +34,7 @@ export default function Search() {
         // 42
       })
       .catch(function (error) {
-        error(error);
+        console.error(error);
       });
   };
 
