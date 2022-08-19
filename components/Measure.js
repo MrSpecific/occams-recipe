@@ -37,8 +37,6 @@ const SystemControl = ({ system, setSystem }) => {
 };
 
 export const MeasuresList = ({ measures, className, system, setSystem }) => {
-  // const [system, setSystem] = useState('imperial');
-
   if (!measures.length) return null;
 
   return (
@@ -57,14 +55,20 @@ export const MeasuresList = ({ measures, className, system, setSystem }) => {
   );
 };
 
-export default function Measure({ measure, system = 'metric' }) {
-  const { note, ingredient } = measure;
+export const convertMeasure = ({ measure, system }) => {
   const { amount, unit } = measure;
   const abbrUnit = units.abbr(unit);
   let displayAmount = amount;
-  let unitInfo;
+  let unitInfo = {};
+  let displayMeasure = '';
 
-  if (units.isExcluded(abbrUnit)) {
+  if (!amount) {
+    return { displayMeasure, displayAmount, unitInfo };
+  }
+
+  if (!abbrUnit) {
+    unitInfo = { abbr: false };
+  } else if (units.isExcluded(abbrUnit)) {
     unitInfo = { abbr: abbrUnit };
   } else {
     unitInfo = convert().describe(abbrUnit);
@@ -76,7 +80,6 @@ export default function Measure({ measure, system = 'metric' }) {
   }
 
   if (abbrUnit !== unitInfo.abbr) {
-    // log(`Converting ${amount} ${abbrUnit} to ${unitInfo.abbr}`);
     displayAmount = convert(amount)
       .from(abbrUnit === 'oz' ? 'fl-oz' : abbrUnit)
       .to(unitInfo.abbr === 'oz' ? 'fl-oz' : unitInfo.abbr);
@@ -84,13 +87,20 @@ export default function Measure({ measure, system = 'metric' }) {
     displayAmount = Math.round(displayAmount);
   }
 
+  displayMeasure = [displayAmount, unitInfo.abbr].join(' ');
+
+  return { displayMeasure, displayAmount, unitInfo };
+};
+
+export default function Measure({ measure, system = 'metric' }) {
+  const { note, ingredient } = measure;
+  const { displayMeasure } = convertMeasure({ measure, system });
+
   return (
     <div className={styles.measure}>
       <span className={styles.measureDetails}>
-        <span className={styles.amountLockup}>
-          {displayAmount} {unitInfo.abbr}
-        </span>
-        &nbsp;
+        {displayMeasure && <span className={styles.amountLockup}>{displayMeasure} &nbsp;</span>}
+
         <span className={styles.ingredient}>{ingredient.title}</span>
       </span>
       {note && <span className={styles.note}>{note}</span>}

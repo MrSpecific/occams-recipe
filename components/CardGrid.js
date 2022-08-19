@@ -16,10 +16,10 @@ export default function CardGrid({ recipes }) {
           return (
             <motion.li
               key={recipe.id}
-              layout
               animate={{ opacity: 1 }}
               initial={{ opacity: 0 }}
-              exit={{ opacity: 0 }}
+              // layout
+              // exit={{ opacity: 0 }}
               // transition={{ duration: 0.25 }}
             >
               <RecipeCard {...recipe} key={`${recipe.id}-card`}></RecipeCard>
