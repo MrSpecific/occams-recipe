@@ -12,6 +12,10 @@ export default {
       title: 'Info',
     },
     {
+      name: 'vitals',
+      title: 'Vitals',
+    },
+    {
       name: 'editorial',
       title: 'Editorial',
     },
@@ -21,7 +25,6 @@ export default {
     },
   ],
   fields: [
-    // Title
     {
       name: 'title',
       title: 'Title',
@@ -29,13 +32,25 @@ export default {
       validation: (Rule) => Rule.required(),
       group: 'info',
     },
-    // Slug
     {
       name: 'slug',
       type: 'slug',
       options: { source: 'title' },
       validation: (Rule) => Rule.required(),
       group: 'info',
+    },
+    {
+      name: 'date',
+      title: 'Date',
+      type: 'date',
+      group: 'info',
+    },
+    {
+      name: 'measures',
+      title: 'Measures',
+      type: 'array',
+      of: [{type: 'string'}],
+      group: 'vitals',
     },
   ],
   preview: {
