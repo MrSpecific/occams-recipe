@@ -20,10 +20,8 @@ const Header = (props) => {
       <Nav />
       <h1 className={styles.title}>
         <Link href={'/'}>
-          <a>
-            {props.title || siteInfo.title}
-            <Razor className={styles.logo} />
-          </a>
+          {props.title || siteInfo.title}
+          <Razor className={styles.logo} />
         </Link>
       </h1>
       {props.children}
