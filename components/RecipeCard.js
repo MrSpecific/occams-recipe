@@ -11,9 +11,7 @@ const RecipeCard = (recipe) => {
   return (
     <div className={styles['recipe-card']}>
       <h2 className={styles.title}>
-        <Link href={`/recipe/${recipe.slug}`}>
-          <a>{recipe.title}</a>
-        </Link>
+        <Link href={`/recipe/${recipe.slug}`}>{recipe.title}</Link>
       </h2>
       <Attribution {...recipe} className={styles.attribution}></Attribution>
       {/* eslint-disable-next-line jsx-a11y/alt-text */}
