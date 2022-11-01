@@ -1,10 +1,10 @@
-import { DocumentIcon } from '@sanity/icons'
+import { DocumentIcon, BookIcon } from '@sanity/icons';
 
 export default {
   name: 'recipe',
   title: 'Recipe',
   type: 'document',
-  icon: DocumentIcon,
+  icon: BookIcon,
   groups: [
     {
       default: true,
@@ -49,7 +49,7 @@ export default {
       name: 'measures',
       title: 'Measures',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{ type: 'measure' }],
       group: 'vitals',
     },
   ],
@@ -59,10 +59,9 @@ export default {
       title: 'title',
     },
     prepare({ title }) {
-
       return {
         title,
-      }
+      };
     },
   },
-}
+};

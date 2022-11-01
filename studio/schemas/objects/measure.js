@@ -4,8 +4,14 @@ export default {
   type: 'object',
   fields: [
     {
-      title: 'Ingredient',
-      name: 'ingredient',
+      name: 'component',
+      title: 'Component',
+      type: 'reference',
+      to: [{ type: 'component' }],
+    },
+    {
+      name: 'amount',
+      title: 'Amount',
       type: 'string',
     },
   ],
